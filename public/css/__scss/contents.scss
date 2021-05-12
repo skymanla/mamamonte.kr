@@ -1,0 +1,1007 @@
+@charset "UTF-8";
+/*
+마이뱅크
+write : gray
+since : 2019-11-29
+*/
+
+@import "_global.code.scss";
+
+// STR 로그인
+.login-box{
+	max-width: 320px;
+	margin: 0 auto;
+	padding: 116px 15px 30px;
+	h1{
+		font-size: 36px;
+		letter-spacing: -1.26px;
+		color: $con-point-color1;
+		font-weight: 500;
+		text-align: center;
+	}
+	.copy{
+		color: $con-default-font-color3;
+		font-weight: 300;
+		font-size: 18px;
+		letter-spacing: -0.63px;
+		text-align: center;
+	}
+	form{
+		margin-top: 80px;
+		input[type="text"],
+		input[type="password"]{
+			width: 100%;
+			height: 55px;
+			padding: 0 15px;
+			border-radius: 5px;
+			border: solid 1px $con-border-color1;
+			background-color: #ffffff;
+			outline: 0;
+			&.password{
+				margin-top: 9px;
+			}
+			&:focus{
+				border-color:$con-point-color1;
+			}
+		}
+		button{
+			width: 100%;
+			height: 50px;
+			margin-top: 9px;
+			border-radius: 5px;
+			border: none;
+			background-color: $con-point-color1;
+			color: #fff;
+			letter-spacing: -0.63px;
+			font-size: 18px;
+			font-weight: 500;
+		}
+		.label-wrap{
+			margin-top: 30px;
+			text-align: right;
+			input{
+				display: none;
+				opacity: 0;
+			}
+			label{
+				position: relative;
+				padding-right: 33px;
+				letter-spacing: -0.53px;
+				&::after{
+					content: '';
+					position: absolute;
+					top: 50%;
+					right:0;
+					width: 24px;
+					height: 24px;
+					margin-top: -12px;
+					border-radius: 5px;
+					border: 1px solid $con-border-color1;
+					background: url('../images/common/img_check_off.png') no-repeat center;
+					background-image: 
+					image-set(
+						url('../images/common/img_check_off@2x.png') 2x,
+						url('../images/common/img_check_off@3x.png') 3x,
+					);
+				}
+			}
+			input:checked + label{
+				&::after{
+					border-color: $con-point-color1;
+					background: url('../images/common/img_check_on.png') no-repeat center;
+					background-image: 
+					image-set(
+						url('../images/common/img_check_on@2x.png') 2x,
+						url('../images/common/img_check_on@3x.png') 3x,
+					);
+				}
+			}
+		}
+	}
+}
+// END 로그인
+
+// STR 리스트
+.con-list-wrap{
+	.search-box-wrap{
+		padding:15px;
+		border-bottom: 1px solid $con-border-color4;
+		background-color: $con-back-color1;
+	}
+	.search-box{
+		display: flex;
+		border-radius: 5px;
+		border: 1px solid $con-border-color3;
+		background-color: #fff;
+		> div{
+			&:nth-child(1){
+				width: 90px;
+			}
+			&:nth-child(2){
+				flex: 1;
+				border-left: 1px solid $con-border-color3;
+				border-left: 1px solid $con-border-color3;
+				border-right: 1px solid $con-border-color3;
+			}
+			&:nth-child(3){
+				width: 70px;
+			}
+			select,
+			input,
+			button{
+				padding:0 10px;
+				width: 100%;
+				height: 38px;
+				border: none;
+				background-color: transparent;
+				outline: 0;
+				font-size: 16px;
+			}
+			select{
+				background: url('../images/common/img_select.png') no-repeat right 10px center;
+				background-image: 
+				image-set(
+					url('../images/common/img_select@2x.png') 2x,
+					url('../images/common/img_select@3x.png') 3x,
+				);
+			}
+		}
+	}
+	.con-tab{
+		padding:15px;
+		overflow: hidden;
+		button{
+			height: 34px;
+			border: 1px solid $con-border-color3;
+			background-color: #fff;
+		}
+		ul{
+			float: left;
+			li{
+				float: left;
+				padding-right: 6px;
+				button{
+					width: 71px;
+					border-radius: 6px;
+					font-size: 14px;
+				}
+				&.active{
+					button{
+						border-color: $con-point-color1;
+						background-color: $con-point-color1;
+						color: #fff;
+					}
+				}
+			}
+		}
+		.reset{
+			float: right;
+			width: 34px;
+			background: url('../images/common/btn_refresh.png') no-repeat center #fff;
+			background-image: 
+			image-set(
+				url('../images/common/btn_refresh@2x.png') 2x,
+				url('../images/common/btn_refresh@3x.png') 3x,
+			);
+		}
+	}
+	.con-list{
+		border-top: 1px solid $con-border-color1;
+		*{
+			word-break: break-all;
+		}
+		.list{
+			border-bottom: 1px solid $con-border-color4;
+			.tr{
+				display: flex;
+				padding: 10px;
+				border-top: 1px solid $con-border-color4;
+				&.active{
+					background-color: $con-back-color1;
+				}
+				&.new{
+					position: relative;
+					&::after{
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 4px;
+						height: 100%;
+						background-color: $con-point-color1;
+					}
+				}
+				> div{
+					position: relative;
+					text-align: center;
+					&.terminal{
+						width: 40px;
+						padding-left: 5px;
+					}
+					&.time{
+						width: 80px;
+						padding-left: 15px;
+						text-align: left;
+						&:before{
+							content: '';
+							position: absolute;
+							top:5px;
+							left:0;
+							width: 13px;
+							height: 13px;
+							border-radius: 50%;
+							background-position: center;
+							background-image: url('../images/common/icon_air_off.png');
+							background-image: 
+							image-set(
+								url('../images/common/icon_air_off@2x.png') 2x,
+								url('../images/common/icon_air_off@3x.png') 3x,
+							);
+						}
+						&.now{
+							&:before{
+								background-image: url('../images/common/icon_air_on.png');
+								background-image: 
+								image-set(
+									url('../images/common/icon_air_on@2x.png') 2x,
+									url('../images/common/icon_air_on@3x.png') 3x,
+								);
+							}
+						}
+						&.user-change{
+							color: $con-point-color5;
+						}
+					}
+					&.name{
+						overflow:hidden;
+						display:inline-block;
+						width: 120px;
+						padding-left: 26px;
+						text-overflow:ellipsis;
+						white-space:nowrap;
+						text-align: left;
+					}
+					&.currency{
+						width: 50px;
+					}
+					&.price{
+						flex: 1;
+						text-align: right;
+					}
+					&.strange{
+						background-repeat: no-repeat;
+						background-position: 5px 5px;
+						background-image: url('../images/common/icon_strange.png');
+						background-image: 
+						image-set(
+							url('../images/common/icon_strange@2x.png') 2x,
+							url('../images/common/icon_strange@3x.png') 3x,
+						);
+					}
+					.refund{ // 환불일 경우
+						color: $con-default-font-color4;
+					}
+					.new{ // 신규일경우
+						position: relative;
+						&::after,
+						&::before{
+							content: '';
+							position: absolute;
+							top:50%;
+						}
+						&::before{
+							left:0;
+							width: 1px;
+							height: 9px;
+							margin-top: -4px;
+							background-color: $con-point-color1;
+						}
+						&:after{
+							left:0;
+							width: 9px;
+							height: 1px;
+							margin-left: -4px;
+							background-color: $con-point-color1;
+						}
+					}
+				}
+				&.thead{
+					background-color: $con-back-color2;
+					> div{
+						font-size: 14px;
+						color: $con-default-font-color1;
+						&.terminal{
+							padding-left: 0;
+						}
+						&.time{
+							padding-left: 0;
+							text-align: center;
+							&:before{
+								display: none;
+							}
+						}
+						&.name{
+							padding-left: 34px;
+							text-align: left;
+						}
+					}
+				}
+				.call{
+					&:before{
+						content: '';
+						position: absolute;
+						top:2px;
+						left:0;
+						width: 20px;
+						height: 20px;
+						border-radius: 50%;
+						background-color: $con-back-color3;
+						background-position: center;
+						background-image: url('../images/common/img_call.png');
+						background-image: 
+						image-set(
+							url('../images/common/img_call@2x.png') 2x,
+							url('../images/common/img_call@3x.png') 3x,
+						);
+					}
+					&.ok:before{
+						background-color: $con-back-color4;
+					}
+					&.no:before{
+						background-color: $con-back-color5;
+					}
+				}
+				&.refund{ // 환불
+					color: $con-default-font-color4;
+				}
+				&.receipt-ok{ // 수령완료
+					color: $con-point-color4;
+					.call{
+						&.ok:before,
+						&.no:before{
+							opacity: 0.5;
+						}
+					}
+				}
+				&.receipt-no{ // 미수령
+					color: $con-point-color3;
+				}
+			}
+			.row-info{
+				display: none;
+				padding: 15px 5px 10px 15px;
+				background-color: $con-back-color1;
+				.bt-wrap{
+					overflow: hidden;
+				}
+				button,
+				a{
+					display: inline-block;
+					height: 40px;
+					line-height: 38px;
+					padding: 0 10px;
+					border-radius: 5px;
+					border: 1px solid $con-border-color5;
+					background-color: transparent;
+					font-size: 14px;
+					color: $con-default-font-color1;
+					text-align: center;
+				}
+				.phone-call,
+				.phone-icon{
+					float: left;
+					margin-right: 6px;
+				}
+				.phone-call{
+					background-color: #fff;
+					&.dim{
+						background-color: transparent;
+					}
+				}
+				.phone-icon{
+					width: 45px;
+					background-position: center;
+					background-repeat: no-repeat;
+					&.ok{
+						background-image: url('../images/common/img_default_call_O.png');
+						background-image: 
+						image-set(
+							url('../images/common/img_default_call_O@2x.png') 2x,
+							url('../images/common/img_default_call_O@3x.png') 3x,
+						);
+						&.active{
+							border: 1px solid $con-border-color6;
+							background-color: $con-back-color4;
+							background-image: url('../images/common/img_call_ok.png');
+							background-image: 
+							image-set(
+								url('../images/common/img_call_ok@2x.png') 2x,
+								url('../images/common/img_call_ok@3x.png') 3x,
+							);
+						}
+					}
+					&.no{
+						background-image: url('../images/common/img_defualt_call_X.png');
+						background-image: 
+						image-set(
+							url('../images/common/img_defualt_call_X@2x.png') 2x,
+							url('../images/common/img_defualt_call_X@3x.png') 3x,
+						);
+						&.active{
+							border: 1px solid $con-border-color7;
+							background-color: $con-back-color5;
+							background-image: url('../images/common/img_call_X.png');
+							background-image: 
+							image-set(
+								url('../images/common/img_call_X@2x.png') 2x,
+								url('../images/common/img_call_X@3x.png') 3x,
+							);
+						}
+					}
+				}
+				.more-info{
+					float: right;
+					width: 90px;
+					background-color: #fff;
+				}
+				.info{
+					display: flex;
+					margin-top: 12px;
+					> div:nth-child(1){
+						padding-right: 10px;
+						font-weight: 500;
+						color: $con-default-font-color1;
+					}
+					> div:nth-child(2){
+						flex: 1;
+					}
+				}
+			}
+			.no-list{
+				padding: 22px 0 21px;
+				text-align: center;
+			}
+		}
+		nav{
+			padding: 22px 0;
+			font-size: 0;
+			text-align: center;
+			a{
+				vertical-align: middle;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				line-height: 28px;
+				margin: 0 3px;
+				border: 1px solid $con-border-color3;
+				font-size: 14px;
+				color: $con-default-font-color3;
+				&.active{
+					border-color: $con-point-color1;
+					color: $con-point-color1;
+				}
+				&.arr{
+					background-position: center;
+					background-repeat: no-repeat;
+					&.prev-end{
+						background-image: url('../images/common/pager_start.png');
+						background-image: 
+						image-set(
+							url('../images/common/pager_start@2x.png') 2x,
+							url('../images/common/pager_start@3x.png') 3x,
+						);
+						&.off{
+							background-image: url('../images/common/pager_start_off.png');
+							background-image: 
+							image-set(
+								url('../images/common/pager_start_off@2x.png') 2x,
+								url('../images/common/pager_start_off@3x.png') 3x,
+							);
+						}
+					}
+					&.prev{
+						background-image: url('../images/common/pager_prev.png');
+						background-image: 
+						image-set(
+							url('../images/common/pager_prev@2x.png') 2x,
+							url('../images/common/pager_prev@3x.png') 3x,
+						);
+						&.off{
+							background-image: url('../images/common/pager_prev_off.png');
+							background-image: 
+							image-set(
+								url('../images/common/pager_prev_off@2x.png') 2x,
+								url('../images/common/pager_prev_off@3x.png') 3x,
+							);
+						}
+					}
+					&.next{
+						background-image: url('../images/common/pager_next.png');
+						background-image: 
+						image-set(
+							url('../images/common/pager_next@2x.png') 2x,
+							url('../images/common/pager_next@3x.png') 3x,
+						);
+						&.off{
+							background-image: url('../images/common/pager_next_off.png');
+							background-image: 
+							image-set(
+								url('../images/common/pager_next_off@2x.png') 2x,
+								url('../images/common/pager_next_off@3x.png') 3x,
+							);
+						}
+					}
+					&.next-end{
+						background-image: url('../images/common/pager_end.png');
+						background-image: 
+						image-set(
+							url('../images/common/pager_end@2x.png') 2x,
+							url('../images/common/pager_end@3x.png') 3x,
+						);
+						&.off{
+							background-image: url('../images/common/pager_end_off.png');
+							background-image: 
+							image-set(
+								url('../images/common/pager_end_off@2x.png') 2x,
+								url('../images/common/pager_end_off@3x.png') 3x,
+							);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// END 리스트
+
+// STR 상세페이지
+.con-view-wrap{
+	padding: 20px 30px 100px;
+	.no-data{
+		color: $con-default-font-color4;
+	}
+	.list{
+		margin-top: 35px;
+		&:nth-child(1){
+			margin-top: 0;
+		}
+		> div{
+			display: flex;
+			> div{
+				display: flex;
+				padding: 10px 0;
+				align-items: center;
+				justify-content: space-between;
+				&:nth-child(1){
+					width: 130px;
+				}
+				&:nth-child(2){
+					flex: 1;
+					padding-left: 10px;
+					padding-right: 10px;
+					border-bottom: 1px solid $con-border-color4;
+					color: $con-default-font-color1;
+					.arrive-ok-bt{
+						width: 45px;
+						height: 32px;
+						border-radius: 5px;
+						border: 1px solid $con-default-font-color4;
+						background-color: transparent;
+						color: $con-border-color3;
+						&.on{
+							border: 1px solid $con-point-color1;
+							color: $con-point-color1;
+						}
+					}
+					.state-change{
+						font-size: 12px;
+						color: $con-default-font-color3;
+					}
+				}
+			}
+		}
+		&.refund{ // 환불
+			> div{
+				> div{
+					&:nth-child(1),
+					&:nth-child(2){
+						color: $con-default-font-color4;
+					}
+				}
+			}
+		}
+		&.type2{
+			margin-top: 0;
+			> div{
+				> div{
+					&:nth-child(2){
+						padding-right: 0;
+						border: 0;
+						input[type="text"],
+						input[type="password"]{
+							width: 100%;
+							height: 45px;
+							padding: 0 15px;
+							border: solid 1px $con-border-color1;
+							background-color: #ffffff;
+							outline: 0;
+							&.password{
+								margin-top: 9px;
+							}
+							&:focus{
+								border-color:$con-point-color1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	select{
+		padding-right: 18px;
+		border: none;
+		background: url('../images/common/img_select_color1.png') no-repeat right;
+		background-image: 
+		image-set(
+			url('../images/common/img_select_color1@2x.png') 2x,
+			url('../images/common/img_select_color1@3x.png') 3x,
+		);
+	}
+	.dim{ // 비활성
+		color: $con-default-font-color4;
+		*{
+			color: $con-default-font-color4 !important;
+		}
+	}
+	.strange-box{
+		.title{
+			position: relative;
+			padding:10px 0;
+			&::after{
+				content: '';
+				position: absolute;
+				top:14px;
+				left:-8px;
+				width: 3px;
+				height: 13px;
+				background: url('../images/common/icon_strange.png') no-repeat center;
+				background-image: 
+				image-set(
+					url('../images/common/icon_strange@2x.png') 2x,
+					url('../images/common/icon_strange@3x.png') 3x,
+				);
+			}
+		}
+		.info{
+			padding:10px;
+			border-bottom: 1px solid $con-border-color4;
+		}
+		.textarea-box{
+			height: 134px;
+			border: 1px solid $con-border-color3;
+			textarea{
+				width: 100%;
+				height: 100%;
+				padding: 15px;
+				border: none;
+				resize: none;
+			}
+		}
+		.bt-wrap{
+			margin-top: 15px;
+			overflow: hidden;
+			a{
+				height: 40px;
+				line-height: 38px;
+				text-align: center;
+				border-radius: 5px;
+				border: 1px solid $con-border-color4;
+				font-size: 16px;
+				&.modify-bt-cancel{
+					float: left;
+					width: 51px;
+					border: 1px solid $con-border-color3;
+				}
+				&.modify-bt-ok{
+					float: right;
+					width: 90px;
+					border: 1px solid $con-point-color1;
+					color: $con-point-color1;
+				}
+			}
+		}
+	}
+	.call-list{
+		margin-top: 20px;
+		> div{
+			overflow: hidden;
+		}
+		.title{
+			float: left;
+		}
+		.bt-wrap{
+			float: right;
+			button,
+			a{
+				display: inline-block;
+				height: 40px;
+				line-height: 38px;
+				padding: 0 10px;
+				border-radius: 5px;
+				border: 1px solid $con-border-color5;
+				background-color: transparent;
+				font-size: 14px;
+				color: $con-default-font-color1;
+				text-align: center;
+			}
+			.phone-call,
+			.phone-icon{
+				float: left;
+				margin-right: 6px;
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+			.phone-call{
+				background-color: #fff;
+				&.dim{
+					background-color: transparent;
+				}
+			}
+			.phone-icon{
+				width: 45px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-color: $con-back-color1;
+				&.ok{
+					background-image: url('../images/common/img_default_call_O.png');
+					background-image: 
+					image-set(
+						url('../images/common/img_default_call_O@2x.png') 2x,
+						url('../images/common/img_default_call_O@3x.png') 3x,
+					);
+					&.active{
+						border: 1px solid $con-border-color6;
+						background-color: $con-back-color4;
+						background-image: url('../images/common/img_call_ok.png');
+						background-image: 
+						image-set(
+							url('../images/common/img_call_ok@2x.png') 2x,
+							url('../images/common/img_call_ok@3x.png') 3x,
+						);
+					}
+				}
+				&.no{
+					background-image: url('../images/common/img_defualt_call_X.png');
+					background-image: 
+					image-set(
+						url('../images/common/img_defualt_call_X@2x.png') 2x,
+						url('../images/common/img_defualt_call_X@3x.png') 3x,
+					);
+					&.active{
+						border: 1px solid $con-border-color7;
+						background-color: $con-back-color5;
+						background-image: url('../images/common/img_call_X.png');
+						background-image: 
+						image-set(
+							url('../images/common/img_call_X@2x.png') 2x,
+							url('../images/common/img_call_X@3x.png') 3x,
+						);
+					}
+				}
+			}
+		}
+		.info{
+			display: none;
+			margin-top: 6px;
+			text-align: right;
+			font-size: 12px;
+			color: $con-default-font-color3;
+		}
+	}
+	.sign-wrap{
+		padding: 40px 0 15px;
+		display: flex;
+		align-items: center;
+		.con{
+			flex: 1;
+			text-align: right;
+			.sign-pop-open{
+				width: 90px;
+				height: 40px;
+				padding-right: 10px;
+				border: 1px solid $con-border-color3;
+				border-radius: 5px;
+				background-color: transparent;
+				background-repeat: no-repeat;
+				background-position:right 7px center;
+				background: url('../images/common/btn_sign_off.png') no-repeat right 7px center;
+				background-image: 
+				image-set(
+					url('../images/common/btn_sign_off@2x.png') 2x,
+					url('../images/common/btn_sign_off@3x.png') 3x,
+				);
+				color: $con-default-font-color4;
+				&.on{
+					border-color:$con-point-color1;
+					background: url('../images/common/btn_sign_on.png') no-repeat right 7px center;
+					background-image: 
+					image-set(
+						url('../images/common/btn_sign_on@2x.png') 2x,
+						url('../images/common/btn_sign_on@3x.png') 3x,
+					);
+					color: $con-point-color1;
+				}
+			}
+			.img-box{
+				overflow: hidden;
+				position: relative;
+				display: inline-block;
+				width: 125px;
+				height: 44px;
+				border: 1px solid $con-border-color3;
+				text-align: center;
+				img{
+					width: 44px;
+					height: 125px;
+					transform: rotate(90deg) translate( -100%, 0);
+				}
+			}
+		}
+	}
+	.receipt-bt-wrap{
+		overflow: hidden;
+		margin: 35px -3px 0;
+		> div{
+			float: left;
+			width: 50%;
+			padding: 0 3px;
+			button{
+				width: 100%;
+				height: 50px;
+				border-radius: 5px;
+				border: 1px solid $con-border-color3;
+				background-color: transparent;
+				font-size: 18px;
+				font-weight: 500;
+				color : $con-default-font-color4;
+				&.on{
+					border-color: $con-point-color1;
+					color: $con-point-color1;
+				}
+				&.active{
+					background-color: $con-point-color1;
+					color: #fff;
+				}
+			}
+		}
+	}
+	.info-log{
+		margin-top: 45px;
+		text-align: right;
+		button{
+			height: 24px;
+			border: none;
+			border-bottom: 1px solid $con-default-font-color2;
+			background-color: transparent;
+		}
+	}
+	.receipt-end-box{
+		display: none;
+		height: 60px;
+		line-height: 60px;
+		margin-top: 20px;
+		border: solid 1px $con-point-color1;
+		background-color: #ffffff;
+		font-size: 20px;
+		font-weight: 500;
+		color: $con-point-color1;
+		text-align: center;
+	}
+}
+// END 상세페이지
+
+// STR 서명받기 팝업
+.sign-pop{
+	display: none;
+	z-index: 9999;
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	> div{
+		display: flex;
+		width: 100%;
+		height: 100%;
+	}
+	.title{
+		position: relative;
+		width: 50px;
+		height: 100%;
+		background-color: $con-point-color1;
+		.logo{
+			position: absolute;
+			left: -75px;
+			bottom: 110px;
+			width: 200px;
+			height: 34px;
+			line-height: 34px;
+			padding-left: 116px;
+			background: url('../images/common/img_logo_w.png') no-repeat left;
+			background-image: 
+			image-set(
+				url('../images/common/img_logo_w@2x.png') 2x,
+				url('../images/common/img_logo_w@3x.png') 3x,
+			);
+			color: #fff;
+			font-size: 16px;
+			background-color: $con-point-color1;
+			transform: rotate(-90deg);
+		}
+		.close{
+			position: absolute;
+			top:0;
+			left:0;
+			width: 50px;
+			height: 50px;
+			border: none;
+			background-color: transparent;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-image: url('../images/common/img_close.png');
+			background-image: 
+			image-set(
+				url('../images/common/img_close@2x.png') 2x,
+				url('../images/common/img_close@3x.png') 3x,
+			);
+		}
+	}
+	.con{
+		position: relative;
+		flex: 1;
+		background-color: #fff;
+		padding: 142px 20px 20px;
+		.con-box{
+			width: 100%;
+			height: 100%;
+			border: 1px solid $con-border-color3;
+			canvas{
+				width: 100%;
+				height: 100%;
+			}
+		}
+		button{
+			position: absolute;
+		}
+		.reset{
+			top: 86px;
+			left:20px;
+			width: 40px;
+			height: 40px;
+			border: 1px solid $con-border-color3;
+			background: url('../images/common/btn_refresh.png');
+			background-image: 
+			image-set(
+				url('../images/common/btn_refresh@2x.png') 2x,
+				url('../images/common/btn_refresh@3x.png') 3x,
+			);
+			transform: rotate(-90deg);
+		}
+		.ok{
+			top: 41px;
+			right:-3px;
+			width: 106px;
+			height: 60px;
+			border-radius: 5px;
+			border: solid 1px $con-point-color1;
+			background-color: #ffffff;
+			color: $con-point-color1;
+			font-size: 18px;
+			font-weight: 500;
+			transform: rotate(-90deg);
+		}
+	}
+}
+// END 서명받기 팝업

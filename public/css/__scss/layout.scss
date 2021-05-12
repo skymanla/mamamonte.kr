@@ -1,0 +1,345 @@
+@charset "UTF-8";
+/*
+마이뱅크
+write : gray
+since : 2019-11-29
+*/
+
+@import "_global.code.scss";
+html,
+body{
+	height: 100%;
+}
+
+.mi-scroll-none{
+    overflow: hidden;
+}
+
+.mi-text-hidden{
+    overflow: hidden;
+    border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+}
+
+.mi-point-color1{
+	color: $con-point-color1;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    appearance: none;
+}
+
+input::-ms-clear {
+    display: none;
+} 
+
+::-webkit-input-placeholder {
+	color: $con-placeholder-font-color1;
+}
+:-ms-input-placeholder {
+	color: $con-placeholder-font-color1;
+}
+::-ms-input-placeholder {
+	color: $con-placeholder-font-color1;
+}
+::placeholder {
+	color: $con-placeholder-font-color1;
+}
+
+#wrap{
+	max-width: 700px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+// STR header
+header{
+	z-index: 999;
+	position: fixed;
+	width: 100%;
+	max-width: 700px;
+	height: 70px;
+	padding: 20px 15px 0;
+	background-color: #fff;
+	border-bottom: 1px solid $con-point-color0;
+	&::after{
+		content: '';
+		clear: both;
+		display: block;
+		width: 100%;
+	}
+	h1{
+		float: left;
+		a{
+			display: block;
+			width: 106px;
+			height: 34px;
+			background: url('../images/common/img_logo.png') no-repeat center;
+			background-image: 
+			image-set(
+				url('../images/common/img_logo@2x.png') 2x,
+				url('../images/common/img_logo@3x.png') 3x,
+			);
+		}
+	}
+	.push-bt-open{
+		margin-top: 8px;
+		position: relative;
+		float: right;
+		margin-right: 6px;
+		padding:5px 29px 5px 0;
+		border: none;
+		background: url('../images/common/img_noti.png') no-repeat right 3px center;
+		background-image: 
+		image-set(
+			url('../images/common/img_noti@2x.png') 2x,
+			url('../images/common/img_noti@3x.png') 3x,
+		);
+		outline: 0;
+		span{
+			font-size: 16px;
+			line-height: 1;
+		}
+		&.push{
+			&::after{
+				content: '';
+				position: absolute;
+				top:3px;
+				right:0;
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				background-color: $con-point-color2;
+			}
+		}
+	}
+	.push-list-wrap{
+		position: fixed;
+		top:0;
+		right:50%;
+		width: 0;
+		max-width: 700px;
+		height: 100%;
+		margin-right: -350px;
+		&::before{
+			content: '';
+			position: absolute;
+			top:0;
+			right:50%;
+			width: 100%;
+			max-width: 700px;
+			height: 100%;
+			margin-right: -350px;
+			background-color: rgba(0, 0, 0, 0.6);
+			transition: all 0.3s ease-in-out;
+			opacity: 0;
+		}
+		@include mediaMax($mediaWidth1 - 1){
+			&{
+				right:0;
+				margin-right: 0;
+			}
+			&::before{
+				right:0;
+				margin-right:0;
+			}
+		}
+		> div{
+			position: relative;
+			float: right;
+			width: 0;
+			height: 100%;
+			padding-top: 125px;
+			background-color: #fff;
+			transition: all 0.3s ease-in-out;
+			overflow: hidden;
+		}
+		&.active{
+			width: 100%;
+			&::before{
+				opacity: 1;
+			}
+			> div{
+				width: 300px;
+			}
+		}
+		h2{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			min-width: 300px;
+			padding: 20px;
+			font-size: 20px;
+			font-weight: normal;
+			letter-spacing: -0.7px;
+			border-bottom:1px solid $con-border-color3;
+			background-color: #fff;
+		}
+		.push-bt-close{
+			position: absolute;
+			top:20px;
+			right:13px;
+			width: 30px;
+			height: 30px;
+			border: none;
+			background: url('../images/common/img_pop_close.png') no-repeat center;
+			background-image: 
+			image-set(
+				url('../images/common/img_pop_close@2x.png') 2x,
+				url('../images/common/img_pop_close@3x.png') 3x,
+			);
+			outline: 0;
+		}
+		.tab{
+			position: absolute;
+			top:71px;
+			left: 0;
+			width: 100%;
+			min-width: 300px;
+			padding: 13px 10px 0;
+			background-color: #fff;
+			ul{
+				overflow: hidden;
+				li{
+					float: left;
+					width: 33.33%;
+					border-bottom:1px solid $con-border-color3;
+					button{
+						width: 100%;
+						height: 40px;
+						line-height: 40px;
+						border: none;
+						background-color: transparent;
+						color: $con-default-font-color4;
+						font-weight: 500;
+						letter-spacing: -0.56px;
+						font-size: 16px;
+						outline: 0;
+						span{
+							position: relative;
+							&.push{
+								&::after{
+									content: '';
+									position: absolute;
+									top:-2px;
+									right:-12px;
+									width: 5px;
+									height: 5px;
+									border-radius: 50%;
+									background-color: $con-point-color2;
+								}
+							}
+						}
+					}
+					&.active{
+						border-color: $con-point-color1;
+						button{
+							color: $con-default-font-color2;
+						}
+					}
+				}
+			}
+		}
+		.list{
+			min-width: 300px;
+			height: 100%;
+			padding: 10px 0;
+			padding: 10px 0;
+			overflow-y: auto;
+			ul{
+				display: none;
+				&.active{
+					display: block;
+				}
+			}
+			li{
+				display: flex;
+				padding:10px 30px;
+				> div{
+					font-size: 16px;
+					letter-spacing: -0.56px;
+					padding-left: 16px;
+					&.code{
+						width: 18px;
+						padding-left: 0px;
+					}
+					&.time{
+						width: 68px;
+					}
+					&.name{
+						overflow:hidden;
+						display:inline-block;
+						width: 100px;
+						text-overflow:ellipsis;
+						white-space:nowrap;
+					}
+					&.no-list{
+						flex: 1;
+						text-align: center;
+					}
+				}
+				&.time{
+					padding:5px 25px;
+					> div{
+						flex: 1;
+						height: 25px;
+						line-height: 25px;
+						padding: 0 14px;
+						border-radius: 5px;
+						background-color: $con-back-color6;
+						text-align: right;
+						color: #fff;
+						font-size: 14px;
+						letter-spacing: -0.49px;
+					}
+				}
+			}
+		}
+	}
+	&.bg1{
+		background-color: $con-point-color1;
+		h1{
+			a{
+				background-image: url('../images/common/img_logo_w.png');
+				background-image: 
+				image-set(
+					url('../images/common/img_logo_w@2x.png') 2x,
+					url('../images/common/img_logo_w@3x.png') 3x,
+				);
+			}
+		}
+		.push-bt-open{
+			background-image: url('../images/common/img_noti_w.png');
+			background-image: 
+			image-set(
+				url('../images/common/img_noti_w@2x.png') 2x,
+				url('../images/common/img_noti_w@3x.png') 3x,
+			);
+			span{
+				color: #fff;
+			}
+			&.push{
+				&::after{
+					background-color: #fff;
+				}
+			}
+		}
+	}
+}
+// END header
+
+// STR contents
+#contents{
+	padding-top: 70px;
+}
+// END contents
