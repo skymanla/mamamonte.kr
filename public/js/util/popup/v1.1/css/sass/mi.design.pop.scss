@@ -1,0 +1,546 @@
+@charset "utf-8";
+/*
+마이뱅크
+write : gray
+since : 2019-10-18
+edit : Jinn
+last edit : 2020-01-21 pop-info 추가
+*/
+
+
+@import url(/font/NotoSansKR/NotoSansKR.css);
+
+.mi-scroll-none{
+    overflow: hidden;
+}
+
+$mi-pop-color-gray1: #777;
+$mi-pop-color-gray2: #999;
+$mi-pop-color-gray3: #333;
+$mi-pop-color-gray4: #555;
+$mi-pop-color-gray5: #ddd;
+$mi-pop-color-point1: #00b19a;
+$mi-pop-color-point2: #e27f72;
+$mi-pop-color-point3: #ff8000;
+$mi-pop-color-point4: #4f9cd0;
+$mi-pop-color-point5: #e8f1fa; // info 팝업용 컬러 @Jinn 20.01.21
+$mi-pop-color-point6: #216bc9; // info 팝업용 컬러 @Jinn 20.01.21
+$mi-pop-color-point7: #648ecc; // 팝업용 컬러 @Jinn 20.01.23
+$mi-pop-color-point8:#5d8dca;
+$mi-pop-color-point9:#e8f0fa;
+$mi-pop-color-point10: #2F3650;
+$mi-pop-color-black: #1c1c1c; // 팝업 기본 폰트 컬러 @Jinn v
+
+
+$mi-pop-font-famliy: 'Noto Sans KR', Malgun Gothic, '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial,sans-serif;
+$mi-pop-font-size: 14px;
+
+$list-style-number1: ( '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩' ); // info 팝업 ol student-style @Jinn 20.01.21
+
+/*팝업 공통*/
+.mi-common-pop{
+    display: none;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-width: 320px;
+    overflow: auto;
+    box-sizing: border-box;
+    *{
+        margin: 0;
+        padding: 0;
+        line-height: 1.63;
+        box-sizing: border-box;
+        letter-spacing: normal;
+        text-rendering: initial;
+        font-family: $mi-pop-font-famliy;
+        font-size: $mi-pop-font-size;
+        color: $mi-pop-color-black; // 팝업 기본 폰트 컬러 세팅 @Jinn
+    }
+    .small-title1{
+        margin-top: 15px;
+        margin-bottom: 7px;
+        font-size: 15px;
+        color: $mi-pop-color-point8;
+    }
+    .small-text1{
+        font-size: 15px;
+    }
+    .mi-info-box1{
+        *{
+            line-height: 1.5;
+            letter-spacing: -0.5px;
+            word-break: keep-all;
+        }
+        .section:first-child {
+            margin-top: 0;
+        }
+    }
+    .color-point1{
+        color: $mi-pop-color-point6;
+        &.underline{
+            position: relative;
+            display: inline-block;
+            &::after{
+                content: '';
+                position: absolute;
+                bottom:2px;
+                left:0;
+                width: 100%;
+                height: 1px;
+                background-color: $mi-pop-color-point6;
+            }
+        }
+    }
+    .color-point2{
+        color: $mi-pop-color-point2;
+        &.underline{
+            position: relative;
+            display: inline-block;
+            &::after{
+                content: '';
+                position: absolute;
+                bottom:2px;
+                left:0;
+                width: 100%;
+                height: 1px;
+                background-color: $mi-pop-color-point2;
+            }
+        }
+    }
+    .t-a-c{
+        text-align: center;
+    }
+    .t-a-l{
+        text-align: left;
+    }
+    .t-a-r{
+        text-align: right;
+    }
+    > div{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    .box-wrap{
+        position: absolute;
+        width: 100%;
+        background: #fff;
+    }
+    h2.title{
+        padding-bottom: 12px;
+        font-size: 18px; // title 폰트 크기 변경 @Jinn 20.01.23
+        font-weight: normal;
+        color: $mi-pop-color-black;
+        border-bottom: 1px solid $mi-pop-color-gray5;
+        &.type1{
+            font-size: 18px;
+            text-align: left;
+        }
+
+    }
+    .bt-wrap{
+        &.pop-info{ // info 팝업용 버튼 스타일 @Jinn 20.01.21
+            padding: 0;
+        }
+        padding: 0 10px 10px;
+        ul{
+            margin: 0 -4px;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            padding: 0 4px;
+            list-style: none;
+
+            $i: 1;
+            @while $i <= 10 {
+                &.w-#{$i} {
+                    width: 100%/$i;
+                }
+                $i: $i + 1;
+            }
+        }
+        button{
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            font-size: $mi-pop-font-size;
+        }
+    }
+    button{
+        border: none;
+        background-color: transparent;
+        outline: 0;
+        text-align: center;
+        cursor: pointer;
+        &.yes-bt{
+            background-color: $mi-pop-color-point10;
+            color: #fff;
+        }
+        &.no-bt{
+            background-color: #fff;
+            color: $mi-pop-color-point10;
+            border: 1px solid $mi-pop-color-point10;
+        }
+        &.pop-info{ // info 팝업용 버튼 컬러 @Jinn 20.01.21
+            background-color: $mi-pop-color-point10;
+            color: #fff;
+        }
+        &:disabled{
+            opacity: 0.5;
+        }
+    }
+    .close-x{
+        position: absolute;
+        top: 17px;
+        right : 12px;
+        width: 12px;
+        height: 12px;
+        &::after,
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top:50%;
+            left:50%;
+            width: 20px;
+            height: 1px;
+            margin-left: -10px;
+            background-color: #626262;
+        }
+        &::after{
+            transform: rotate(45deg);
+        }
+        &::before{
+            transform: rotate(-45deg);
+        }
+    }
+    .txt-box1{
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        color: $mi-pop-color-gray1;
+    }
+    .pop-input{
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        border:1px solid $mi-pop-color-gray5;
+        background-color: #fff;
+        font-size: 15px;
+        color: $mi-pop-color-gray4;
+        outline: 0;
+        &:focus{
+            z-index: 2;
+            border-color: $mi-pop-color-point7;
+        }
+        &.placeholder{
+            &::-webkit-input-placeholder {
+                color: $mi-pop-color-gray5;
+            }
+            &:-ms-input-placeholder {
+                color: $mi-pop-color-gray5;
+            }
+            &::-ms-input-placeholder {
+                color: $mi-pop-color-gray5;
+            }
+            &::placeholder {
+                color: $mi-pop-color-gray5;
+            }
+        }
+    }
+    select.pop-input{
+        appearance:none;
+        background: url('/images/contents/arrow1.png') no-repeat right 10px center #fff;
+        background-image:
+        image-set(
+            url('/images/contents/arrow1@2x.png') 2x,
+            url('/images/contents/arrow1@3x.png') 3x,
+        );
+        &:focus{
+            background-image: url('/images/contents/arrow1-1.png');
+            background-image:
+            image-set(
+                url('/images/contents/arrow1-1@2x.png') 2x,
+                url('/images/contents/arrow1-1@3x.png') 3x,
+            );
+        }
+        .color-red{
+            color: $mi-pop-color-point3;
+        }
+        .color-blue{
+            color: $mi-pop-color-point4;
+        }
+    }
+    select.pop-input::-ms-expand{
+        display:none
+    }
+    .pop-list1{
+        li{
+            padding: 13px 10px;
+            display: flex;
+            justify-content: space-between;
+            border-top:1px solid $mi-pop-color-gray5 ;
+            .letter-sp1{
+                letter-spacing: -0.53px;
+                *{
+                    letter-spacing: -0.53px;
+                }
+            }
+            .font-small-1{
+                font-size: 14px;
+            }
+            > div{
+                &:nth-child(1){
+                    font-size: 15px;
+                    color: $mi-pop-color-gray2;
+                    text-align: left;
+                }
+                &:nth-child(2){
+                    padding-left: 10px;
+                    font-size: 15px;
+                    color: $mi-pop-color-gray4;
+                    text-align: right;
+                }
+                &.w1{
+                    width: 100px;
+                }
+                &.w2{
+                    width: 185px;
+                }
+                &.w3{
+                    width: 200px;
+                }
+            }
+            &.input-box{
+                padding: 5px 0 5px 10px;
+                div{
+                    &:nth-child(1){
+                        padding-top: 8px;
+                    }
+                }
+            }
+            &:first-child{
+                border: none;
+            }
+            &:last-child{
+                padding-bottom: 0;
+            }
+        }
+        &.type1{
+            padding: 0 10px;
+        }
+    }
+    &.info-box1{
+        padding: 0 16px;
+        background-color: rgba(0,0,0,0.6);
+        @media all and (max-width:460px){
+            &{
+                padding:0 10px;
+            }
+        }
+        .box-wrap{
+            max-width: 448px;
+        }
+        .copy-wrap{
+            &.pop-info{ // info 팝업 내용 스타일 @Jinn 20.01.21
+                padding: 25px 20px;
+                font-size: 15px;
+                .copy-box{
+                    padding: 0;
+                }
+                .additional-section{
+                    margin-top: 20px;
+                    padding-top: 15px;
+                    border-top: 1px solid #e6e6e6;
+                    > div{
+                        p{
+                            margin-bottom: 10px;
+                            &:before{
+                                content: '*';
+                                margin-right: 3px;
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                        div{
+                            margin: 0 9px;
+                            color: $mi-pop-color-gray1;
+                            font-size: 14px;
+                        }
+                        ul{
+                            margin-left: 9px;
+                        }
+                    }
+                }
+                p{
+                    margin: 15px 0;
+                    &.info-list-notice{
+                        margin-bottom: 20px;
+                    }
+                    &.info-list-title{
+                        margin: 15px 0 6px;
+                        &.strong{
+                            font-weight: 700;
+                        }
+                        &~span{
+                            color: $mi-pop-color-gray1;
+                            font-size: 14px;
+                        }
+                    }
+                    &.mart-none,
+                    &:first-child{
+                        margin-top: 0;
+                    }
+                    &.marb-none,
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+                ul,
+                ol{
+                    &.info-list-list{
+                        padding-top: 25px;
+                        font-size: 14px;
+                        li{
+                            display: flex;
+                            color: $mi-pop-color-point10;
+                            &:before{
+                                content: '';
+                                width: 4px;
+                                height: 4px;
+                                display: inline-block;
+                                margin-right: 7px;
+                                margin-top: 10px;
+                                padding-right: 0;
+                                border-radius: 50%;
+                                background-color: $mi-pop-color-point10;
+                            }
+                            &:last-child{
+                                margin: 0;
+                            }
+                            > div{
+                                margin-bottom: 13px;
+                                &.ls{
+                                    margin: 0;
+                                }
+                                > span{
+                                    &.strong{
+                                        font-weight: 700;
+                                    }
+                                    &.small{
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.list-point{
+                        li{
+                            color: $mi-pop-color-point10;
+                        }
+                    }
+                    &.list-dash{
+                        list-style-type: none;
+                        &.purple{
+                            li{
+                                color: $mi-pop-color-point10;
+                                font-size: 14px;
+                            }
+                        }
+                        li{
+                            display: flex;
+                            font-size: 13px;
+                            color: $mi-pop-color-gray1;
+                            &:before{
+                                content: '-';
+                                display: inline-block;
+                                margin-right: 4px;
+                            }
+                        }
+                    }
+                }
+                ul{
+                    li{
+                        display: table-row;
+                        list-style-type: none;
+                        &::before{
+                            content: '·';
+                            display: table-cell;
+                            padding-right: 5px;
+                        }
+                    }
+                }
+                ol{
+                    padding-left: 10px;
+                    li{
+                        display: table-row;
+                        list-style-type: none;
+                        @each $list-num in $list-style-number1{
+                            $i : index($list-style-number1, $list-num);
+                            &:nth-child(#{$i})::before{
+                                content: $list-num;
+                                display: table-cell;
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            display: flex;
+            align-items: center;
+            flex-flow: row wrap;
+            padding: 10px;
+            color: $mi-pop-color-gray1;
+            font-size: 16px;
+            > *{
+                width: 100%;
+            }
+            .copy-box{
+                padding: 20px 0;
+                .small-copy1{
+                    font-size: 14px;
+                    color: $mi-pop-color-gray2;
+                }
+            }
+        }
+    }
+    &.guarantee-info{
+        padding: 0 16px;
+        background-color: rgba(0,0,0,0.6);
+        @media all and (max-width:460px){
+            &{
+                padding:0 10px;
+            }
+        }
+        .box-wrap{
+            max-width: 448px;
+        }
+        .copy-wrap{
+            text-align: left;
+            h2.title{
+                padding: 20px 10px;
+                border: none;
+                background-color: $mi-pop-color-point10;
+                text-align: center;
+                font-size: 18px;
+                color: #fff;
+                b{
+                    color: #fff;
+                }
+                .question-mark{
+                    margin-left: 4px;
+                    margin-right: 5px;
+                }
+            }
+            .copy-box{
+                padding: 10px 6px;
+            }
+        }
+    }
+}

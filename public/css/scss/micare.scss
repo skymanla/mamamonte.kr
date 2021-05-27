@@ -1,0 +1,108 @@
+@import '_define.scss';
+
+
+.result-statistics{
+    display: flex;
+    text-align: right;
+
+    .result-statistics-title{
+        margin: 0 20px;
+        min-width: 50px;
+        text-decoration: underline;
+    }
+}
+
+.status-td{
+    position: relative;
+    .status-mini-pop{
+        z-index: 2;
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        background-color: #fff;
+        border: 1px solid $gray-e6;
+
+        ul{
+            li{
+                padding: 10px 20px;
+                &:hover{
+                    cursor: pointer;
+                    color: $point-color5;
+                }
+            }
+        }
+    }
+}
+
+.micare-photo-box{ // 사진 팝업
+    form{
+        text-align: right;
+        label{
+            color: $point-color5;
+            text-decoration: underline;
+        }
+        input{
+            display: none;
+        }
+    }
+
+    .showing-img-btns{
+        button{
+            margin-right: 5px;
+            padding: 7px 10px;
+            border: 1px solid $gray-ccc;
+            border-radius: 3px;
+            background: #fff;
+            font-size: $default-font-size;
+            color: $default-font-color;
+            outline: 0;
+
+            &.active{
+                color: #fff;
+                background: $default-point-color;
+            }
+        }
+        select{
+            margin-bottom: 10px;
+            width: 200px;
+        }
+    }
+
+    .showing-img-box{
+        margin: 20px auto 0;
+        width: 100%;
+        height: 400px;
+        background-color: $gray-ccc;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
+
+    .btn_showing_zoom {
+        display: inline-block;
+        margin-top: 18px;
+        text-decoration: underline;
+    }
+
+    .hide{
+        display: none;
+    }
+}
+
+.alert-log-pop-box{
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#payDate{
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    @include background('/image/calender-ico', 'png');
+}
+
+.claim-paper-pop-box{
+    .mi-input-input{
+        width: 33%;
+        text-align: left;
+    }
+}

@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/*
+*  로그인 CSS
+*/
+/*
+*  SCSS 변수 및 함수 정의
+*/
+@import url(/font/NotoSansKR/NotoSansKR.css);
+.login-wrapper {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.login-title-wrapper {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.login-title-wrapper h1 {
+    font-weight: 700;
+    font-size: 21px;
+}
+.login-title-wrapper h2 {
+    font-weight: 700;
+    font-size: 17px;
+}
+.login-title-wrapper .login-title-copy {
+    color: #555;
+}
+
+form {
+    width: 100%;
+}
+form .login-input-wrapper {
+    display: flex;
+}
+form .login-input-wrapper .login-text {
+    flex: 1;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    color: #2F3650;
+    border-radius: 3px;
+}
+form .login-input-wrapper .login-text::placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+form .login-input-wrapper .login-text::-ms-value {
+    color: #1c1c1c;
+    background-color: transparent;
+}
+form .login-input-wrapper .login-text:hover, form .login-input-wrapper .login-text:active, form .login-input-wrapper .login-text:focus {
+    border-color: #2F3650;
+}
+form .login-input-wrapper .login-text.last {
+    margin: 0;
+}
+form .login-input-wrapper .login-checkbox {
+    display: none;
+}
+form .login-input-wrapper .login-checkbox + .login-label {
+    margin-top: 10px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+form .login-input-wrapper .login-checkbox + .login-label::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    vertical-align: middle;
+    background-image: url("/image/chk_off.png");
+    background-image: image-set(url("/image/chk_off@2x.png") 2x, url("/image/chk_off@3x.png") 3x);
+}
+form .login-input-wrapper .login-checkbox:checked + .login-label::after {
+    background-image: url("/image/chk_on.png");
+    background-image: image-set(url("/image/chk_on@2x.png") 2x, url("/image/chk_on@3x.png") 3x);
+}
+form .login-input-wrapper button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 0;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #2F3650;
+    border-radius: 3px;
+    background-color: #2F3650;
+}
+form .error-box {
+    margin-top: 20px;
+    padding: 10px 0;
+    color: #e54141;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 3px;
+    border: 1px solid #e54141;
+}
+form .rest-account {
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    border-top: 1px solid #e54141;
+}
+form .rest-account span {
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%);
+    width: 55%;
+    text-align: center;
+    font-weight: 700;
+    color: #e54141;
+    background-color: #fff;
+}
+form .oauth-form {
+    text-align: center;
+}
+form .oauth-form img {
+    width: 30%;
+}
+
+.resend-auth {
+    margin-top: 14px;
+}
+.resend-auth:hover, .resend-auth:focus {
+    color: #1c1c1c;
+}

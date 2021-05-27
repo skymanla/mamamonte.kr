@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+/*
+*  해외여행자 단기 리뉴얼 css
+*/
+
+@import '_define.scss';
+
+.blacklist-pop-box{
+    textarea{
+        height: 100px;
+        resize: none;
+    }
+    .mi-input-box{
+        min-height: 0 !important;
+    }
+}

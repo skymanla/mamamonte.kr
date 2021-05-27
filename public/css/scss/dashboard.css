@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/*
+* 대시보드 CSS
+*/
+/*
+*  SCSS 변수 및 함수 정의
+*/
+@import url(/font/NotoSansKR/NotoSansKR.css);
+.dashboard-wrapper {
+  display: flex;
+  margin-top: 200px;
+  justify-content: center;
+}
+.dashboard-wrapper .btn-wrapper {
+  margin-right: 20px;
+}
+.dashboard-wrapper .btn-wrapper:last-child {
+  margin: 0;
+}
+.dashboard-wrapper .btn-wrapper .menu-btn {
+  display: block;
+  width: 150px;
+  height: 150px;
+  color: #1c1c1c;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 65px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.travel {
+  background-image: url("/image/ico_travel.png");
+  background-image: image-set(url("/image/ico_travel@2x.png") 2x, url("/image/ico_travel@3x.png") 3x);
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.driver {
+  background-image: url("/image/ico_drive.png");
+  background-image: image-set(url("/image/ico_drive@2x.png") 2x, url("/image/ico_drive@3x.png") 3x);
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.pet {
+  background-image: url("/image/ico_pet.png");
+  background-image: image-set(url("/image/ico_pet@2x.png") 2x, url("/image/ico_pet@3x.png") 3x);
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.mountain {
+  background-image: url("/image/ico_mountain.png");
+  background-image: image-set(url("/image/ico_mountain@2x.png") 2x, url("/image/ico_mountain@3x.png") 3x);
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.silbi {
+  background-image: url("/image/ico_silbi.png");
+  background-image: image-set(url("/image/ico_silbi@2x.png") 2x, url("/image/ico_silbi@3x.png") 3x);
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.micare {
+  background-image: url("/image/ico_micare.png");
+  background-image: image-set(url("/image/ico_micare@2x.png") 2x, url("/image/ico_micare@3x.png") 3x);
+}
+.dashboard-wrapper .btn-wrapper .menu-btn.active {
+  border-color: #005698;
+  color: #005698;
+}
+.dashboard-wrapper .btn-wrapper .travel-menu {
+  display: none;
+}
+.dashboard-wrapper .btn-wrapper .travel-menu ul {
+  padding-top: 20px;
+}
+.dashboard-wrapper .btn-wrapper .travel-menu ul li {
+  padding: 8px 14px;
+}
+.dashboard-wrapper .btn-wrapper .travel-menu ul li a {
+  font-size: 16px;
+}
+.dashboard-wrapper .btn-wrapper .travel-menu ul li a:hover, .dashboard-wrapper .btn-wrapper .travel-menu ul li a:active, .dashboard-wrapper .btn-wrapper .travel-menu ul li a:focus {
+  color: #005698;
+}
+
+/*# sourceMappingURL=dashboard.css.map */

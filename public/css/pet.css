@@ -1,0 +1,414 @@
+@charset "UTF-8";
+/*
+*  펫보험 css
+*/
+/*
+*  SCSS 변수 및 함수 정의
+*/
+@import url(/font/NotoSansKR/NotoSansKR.css);
+.detail .detail-tr a {
+  text-decoration: underline;
+}
+
+.detail .detail-tr a.no-color {
+  color: #1c1c1c;
+}
+
+.detail .boundary {
+  border-right: 1px solid #e6e6e6;
+}
+
+.status-td {
+  position: relative;
+}
+
+.status-td .status-mini-pop {
+  z-index: 2;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+}
+
+.status-td .status-mini-pop ul li {
+  padding: 10px 20px;
+}
+
+.status-td .status-mini-pop ul li:hover {
+  cursor: pointer;
+  color: #1400FF;
+}
+
+.mail-pop-box .mi-input-box input[type=checkbox],
+.mail-pop-box .mi-input-box input[type=radio],
+.cancel-pay-pop .mi-input-box input[type=checkbox],
+.cancel-pay-pop .mi-input-box input[type=radio] {
+  margin-right: 10px;
+}
+
+.mail-pop-box .mi-input-box .check-select-wrapper,
+.cancel-pay-pop .mi-input-box .check-select-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+     -moz-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 0 30px;
+}
+
+.mail-pop-box .mi-input-box .check-select-wrapper > div, .mail-pop-box .mi-input-box .check-select-wrapper select,
+.cancel-pay-pop .mi-input-box .check-select-wrapper > div,
+.cancel-pay-pop .mi-input-box .check-select-wrapper select {
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: left;
+}
+
+.mail-pop-box .mi-input-box .cancel-date-wrapper,
+.cancel-pay-pop .mi-input-box .cancel-date-wrapper {
+  padding-right: 18px !important;
+}
+
+.mail-pop-box .mi-input-box .cancel-date-wrapper #cancelDate,
+.cancel-pay-pop .mi-input-box .cancel-date-wrapper #cancelDate {
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-image: url("/image/calender-ico.png");
+  background-image: -webkit-image-set(url("/image/calender-ico@2x.png") 2x, url("/image/calender-ico@3x.png") 3x);
+  background-image: image-set(url("/image/calender-ico@2x.png") 2x, url("/image/calender-ico@3x.png") 3x);
+}
+
+.mail-pop-box .payed-log-copy,
+.cancel-pay-pop .payed-log-copy {
+  padding-right: 20px;
+  text-align: right;
+  font-size: 13px;
+  color: #e54141;
+}
+
+.mail-pop-box .date-wrapper,
+.cancel-pay-pop .date-wrapper {
+  margin-top: 10px;
+}
+
+.mail-pop-box .date-wrapper .mi-datepicker,
+.cancel-pay-pop .date-wrapper .mi-datepicker {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pay-pop-box .payed-log {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pay-pop-box .payed-log > div button {
+  margin-right: 5px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+  font-size: 13px;
+  color: #1c1c1c;
+  outline: 0;
+}
+
+.pay-info-wrapper {
+  padding: 0 26px;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-label {
+  margin-bottom: 13px;
+  color: #333;
+  text-align: left;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 25px;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box.card-date {
+  -webkit-box-flex: 0.37;
+     -moz-box-flex: 0.37;
+      -ms-flex: 0.37;
+          flex: 0.37;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input {
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input {
+  width: 100%;
+  max-height: 40px;
+  padding: 8px 0;
+  border: 1px solid #ddd;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  outline: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input::-webkit-input-placeholder {
+  font-weight: normal;
+  color: #ddd;
+  opacity: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input:-ms-input-placeholder {
+  font-weight: normal;
+  color: #ddd;
+  opacity: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input::-ms-input-placeholder {
+  font-weight: normal;
+  color: #ddd;
+  opacity: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input:-moz-placeholder {
+  font-weight: normal;
+  color: #ddd;
+  opacity: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input::-moz-placeholder {
+  font-weight: normal;
+  color: #ddd;
+  opacity: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input::placeholder {
+  font-weight: normal;
+  color: #ddd;
+  opacity: 1;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-input input:focus {
+  border: 1px solid #005698;
+}
+
+.pay-info-wrapper .pay-card-box.card-num-info .card-info-wrapper .card-info-box .card-info-connect {
+  color: #707070;
+  padding: 0 3px;
+}
+
+.pay-info-wrapper.in-pop {
+  padding: 0;
+}
+
+.pay-info-wrapper.in-pop .pay-card-box {
+  margin: 0;
+  padding: 0;
+}
+
+.pay-info-wrapper.confirm {
+  padding-bottom: 4px;
+  text-align: center;
+}
+
+.reject-pop-list .ask-copy {
+  margin-top: 10px;
+  color: #e54141;
+}
+
+.alert-pop-box .alert-kind-wrap {
+  padding: 0 40px;
+}
+
+.alert-pop-box .alert-kind-wrap .mi-input-input {
+  text-align: left;
+}
+
+.alert-pop-box .alert-kind-wrap .mi-input-input input[type=radio] {
+  margin-right: 10px;
+}
+
+.pet-photo-box form {
+  text-align: right;
+}
+
+.pet-photo-box form label {
+  color: #1400FF;
+  text-decoration: underline;
+}
+
+.pet-photo-box form input {
+  display: none;
+}
+
+.pet-photo-box .showing-img-box {
+  margin: 20px auto 0;
+  width: 100%;
+  height: 400px;
+  background-color: #ccc;
+  background-repeat: no-repeat;
+  -moz-background-size: contain;
+       background-size: contain;
+  background-position: center center;
+}
+
+.name-log-pop-box,
+.log-pop-box {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.question-mark {
+  display: inline-block;
+  width: 16px;
+  height: 17px;
+  margin-top: -5px;
+  margin-left: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/image/question-mark.png");
+  background-image: -webkit-image-set(url("/image/question-mark@2x.png") 2x, url("/image/question-mark@3x.png") 3x);
+  background-image: image-set(url("/image/question-mark@2x.png") 2x, url("/image/question-mark@3x.png") 3x);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.disease-guarantee-pop {
+  color: #999;
+}
+
+.plan-summary-wrap {
+  margin-bottom: 16px;
+  padding: 19px 0 20px;
+  border: 1px solid #e6e6e6;
+}
+
+.plan-summary-wrap > div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.plan-summary-wrap > div:last-child {
+  margin-bottom: 0;
+}
+
+.plan-summary-wrap > div .plan-summary-title {
+  -webkit-box-flex: 1.5;
+     -moz-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
+  margin-right: 17px;
+  text-align: right;
+  color: #777;
+}
+
+.plan-summary-wrap > div .plan-summary-content {
+  -webkit-box-flex: 2;
+     -moz-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  text-align: left;
+  color: #555;
+}
+
+.plan-summary-wrap > div .plan-summary-content.plan-summary-breed > div {
+  width: 152px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plan-summary-wrap > div.highlight {
+  padding-top: 4px;
+  font-size: 15px;
+}
+
+.plan-summary-wrap > div.highlight .plan-summary-title {
+  color: #1c1c1c;
+}
+
+.plan-summary-wrap > div.highlight .plan-summary-content {
+  display: none;
+  color: #005698;
+}
+
+.plan-summary-wrap > div.highlight .plan-summary-content.active {
+  display: block;
+}
+
+.change-photo-bt:disabled {
+  opacity: 0.6;
+}
+
+.upload-label {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #2F3650;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #2F3650;
+  font-size: 13px;
+  color: #fff;
+  outline: 0;
+}
+
+.upload-label + input[type=file] {
+  display: none;
+}

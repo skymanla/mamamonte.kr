@@ -1,0 +1,310 @@
+@charset 'UTF-8';
+/*
+*  계정관리
+*/
+
+@import '_define.scss';
+
+.content-wrapper {
+    margin: 20px 110px;
+    .account-btns {
+        text-align: right;
+
+        button,
+        .account-btn {
+            padding: 7px 10px;
+            border: 1px solid $gray-ccc;
+            border-radius: 3px;
+            background: #fff;
+
+            &.active {
+                color: #fff;
+                border-color: $default-point-color;
+                background: $default-point-color;
+            }
+        }
+    }
+
+    .functions-wrapper {
+        > div,
+        > form{
+            display: flex;
+            padding: 15px 10px;
+            border-bottom: 1px solid $gray-e6;
+            > div{
+                display: flex;
+                select,
+                input,
+                label,
+                button{ //  검색창 내부 요소
+                    padding: 7px 10px;
+                    border: 1px solid $gray-ccc;
+                    border-radius: 3px;
+                    background: #fff;
+                    &.active,
+                    &:checked+label{ // 기간 선택 라벨
+                        color: #fff;
+                        border-color: $default-point-color;
+                        background: $default-point-color;
+                    }
+                    &.search,
+                    &.reset{ // 검색, 초기화 버튼
+                        width: 53px;
+                    }
+                }
+                input{
+                    width: 187px;
+                }
+                select{
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    padding-right: 30px;
+                    background-repeat: no-repeat;
+                    background-position: right 10px center;
+                    @include background('/image/select-arrow','png');
+                    &::-ms-expand{
+                        display: none; // IE 화살표 감추기
+                    }
+                }
+            }
+
+            &.filter{ // 검색 관련 box (form)
+                justify-content: space-between;
+                width: 573px;
+                margin: 0 auto;
+                padding: 15px;
+                border: 1px solid $gray-e6;
+                &.pet-form{ // 펫보험용 (길이 조절)
+                    width: 1550px;
+                    .date-filter{
+                        width: 360px;
+                        text-align: center;
+                    }
+                }
+                &.filter-center{
+                    justify-content: center;
+                }
+
+                &.filter-row{
+                    display: block;
+                    .filter-row{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 35px;
+                        &.lst{
+                            margin-top: 10px;
+                        }
+                    }
+                }
+
+                .date-filter,
+                .additional-filter{ // 날짜 필터
+                    position: relative;
+                    input[type=text]{
+                        margin-right: 5px
+                    }
+                    label{
+                        margin-right: 5px;
+                        width: 53px;
+                        text-align: center;
+                        &:last-child{
+                            margin: 0;
+                        }
+                        &.no-padding{
+                            padding: 7px 0;
+                        }
+                    }
+                    input[type=radio]{
+                        display: none;
+                    }
+                    .ui-datepicker{
+                        position: absolute;
+                        top: 40px;
+                        left: 0;
+                        z-index: 9;
+                    }
+                }
+
+                .search-filter{ // 검색창 및 버튼 필터
+                    input[type=text],
+                    select{
+                        margin-right: 5px;
+                    }
+                    button{
+                        margin-right: 5px;
+                        &:last-child{
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+
+            &.result-total{ // 총 검색결과
+                font-weight: 700;
+                span{
+                    font-weight: normal;
+                }
+            }
+
+            &.function{ // 엑셀다운로드 등 기능
+                justify-content: space-between; // NOTE : 해외단기에서 사용 @Jinn 20.04.09
+                .function-btns{ // 버튼 box
+                    button{
+                        margin-right: 5px;
+                        &:last-child{
+                            margin: 0;
+                        }
+                    }
+                }
+                .function-statistics{ // 통계 box
+                    >div{
+                        display: flex;
+                        align-items: center;
+                        &:first-child{
+                            margin-right: 15px;
+                        }
+                        span,
+                        a{
+                            margin-right: 5px;
+                            &.title{
+                                font-weight: 700;
+                            }
+                        }
+                        a{
+                            color: $default-font-color-link;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+form {
+    margin-top: 20px;
+
+    .inner {
+        width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+
+        h1 {
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .add-list {
+            padding: 0 250px;
+
+            >div {
+                display: flex;
+                align-items: center;
+                padding: 15px 0;
+
+                &.rest-account{
+                    position: relative;
+                    padding-bottom: 15px;
+                    border-top: 1px solid $point-color3;
+                    span{
+                        position: absolute;
+                        left: 50%;
+                        top: -10px;
+                        transform: translateX(-50%);
+                        width: 55%;
+                        text-align: center;
+                        background-color: #fff;
+                    }
+                }
+
+                &.hidden-radio {
+                    display: none;
+                    margin-left: 130px;
+                    &.show{
+                        display: flex;
+                        align-items: flex-start;
+                    }
+                    > div{
+                        width: (100% / 2);
+                        margin-right: 30px;
+                        .sub-input-wrapper{
+                            display: none;
+                            margin-bottom: 10px;
+                            &.show{
+                                display: block;
+                            }
+                            &:last-child{
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+
+                &:last-child {
+                    align-items: flex-start;
+                }
+
+                >label {
+                    width: 130px;
+                    text-align: left;
+                    font-weight: bold;
+                }
+
+                >div {
+                    flex: 1;
+                    text-align: left;
+
+                    &.level-in-wrapper{
+                        display: block;
+                        .level-row{
+                            display: flex;
+                            margin-bottom: 10px;
+                            .input-wrapper{
+                                width: calc(100% / 3);
+                                text-align: left;
+                                &:last-child{
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .hidden-radio-bottom{
+                        margin-left: 20px;
+                    }
+
+                    input[type=text],
+                    input[type=password],
+                    button {
+                        padding: 7px 10px;
+                        width: 100%;
+                        border: 1px solid $gray-ccc;
+                        border-radius: 3px;
+                        background: #fff;
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            border-color: $default-point-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .btns{
+            button {
+                padding: 7px 10px;
+                width: 53px;
+                border: 1px solid $gray-ccc;
+                border-radius: 3px;
+                background: #fff;
+                &.active{
+                    color: #fff;
+                    border-color: $default-point-color;
+                    background: $default-point-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,738 @@
+@charset 'UTF-8';
+/*
+*  운전자보험 공통
+*/
+
+@import '_define.scss';
+
+.content-wrapper {
+  margin: 20px 110px;
+
+  .sub-content {
+    // margin: 0 110px;
+  }
+  
+  .account-btns {
+    text-align: right;
+
+    &.left-align {
+      text-align: left;
+    }
+
+    button,
+    .account-btn {
+        padding: 7px 10px;
+        border: 1px solid $gray-ccc;
+        border-radius: 3px;
+        background: #fff;
+
+        &.active {
+            color: #fff;
+            border-color: $default-point-color;
+            background: $default-point-color;
+        }
+    }
+}
+}
+
+.service-set-menu {
+  .driver-service-list {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    min-width: 500px;
+    height: 48px;
+    padding: 0;
+    justify-content: flex-end;
+
+    li {
+      padding: 0;
+      a {
+        display: inline-block;
+        padding: 9px 6px;
+      }
+      &.active::after {
+        bottom: 3px;
+        height: 1px;
+      }
+    }
+  
+    .top-service-menu {
+      display: flex;
+      .service-list {
+        display:flex;
+        flex:none;
+        margin-left: auto;
+        >li {
+          margin-left: 10px;
+          padding: 20px 0;
+        }
+      }
+    }
+  }
+}
+
+.active-contents {
+  display: block;
+}
+
+form {
+  margin-top: 20px;
+
+  .inner {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+      text-align: left;
+      margin-bottom: 50px;
+    }
+
+    .add-list {
+      padding: 0 250px;
+
+      >div {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+
+        &.rest-account{
+          position: relative;
+          padding-bottom: 15px;
+          border-top: 1px solid $point-color3;
+          span{
+            position: absolute;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+            width: 55%;
+            text-align: center;
+            background-color: #fff;
+          }
+        }
+
+        &:last-child {
+          align-items: flex-start;
+        }
+
+        >label {
+          width: 130px;
+          text-align: left;
+          font-weight: bold;
+        }
+
+        >div {
+          flex: 1;
+          text-align: left;
+          .input-wrapper {
+            padding: 10px 0 0 15px;
+            &.fr {
+              padding-top: 0;
+            }
+            .hidden-radio {
+              display: none;
+            }
+          }
+
+          input[type=text],
+          input[type=password],
+          button {
+            padding: 7px 10px;
+            width: 100%;
+            border: 1px solid $gray-ccc;
+            border-radius: 3px;
+            background: #fff;
+            &:hover,
+            &:active,
+            &:focus {
+              border-color: $default-point-color;
+            }
+          }
+        }
+      }
+    }
+
+    .btns{
+      button {
+        padding: 7px 10px;
+        width: 53px;
+        border: 1px solid $gray-ccc;
+        border-radius: 3px;
+        background: #ffffff;
+        &.active{
+          color: #fff;
+          border-color: $default-point-color;
+          background: $default-point-color;
+        }
+      }
+    }
+  }
+}
+
+.main-table input[type=text],
+.main-table input[type=password] {
+  padding: 7px 10px;
+  width: 100%;
+  border: 1px solid $gray-ccc;
+  border-radius: 3px;
+  background: #fff;
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $default-point-color;
+  }
+}
+
+.btns{
+  button {
+    padding: 7px 10px;
+    width: 53px;
+    border: 1px solid $gray-ccc;
+    border-radius: 3px;
+    background: #ffffff;
+    &.active{
+      color: #fff;
+      border-color: $default-point-color;
+      background: $default-point-color;
+    }
+    &.disabled{
+      color: #fff;
+      border-color: $gray-ccc;
+      background: $gray-ccc;
+    }
+  }
+}
+
+.sales-top-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  .bar-text-field {
+    flex: none;
+    text-align: right;
+    padding:7px 10px;
+    span {
+      font-weight: 700;
+    }
+  }
+  .bar-other-field {
+    flex: none;
+    margin-left: 10px;
+    input{
+      width:170px !important;
+    }
+  }
+  select {
+    padding: 7px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  input[name="daterange"] {
+    text-align: center;
+  }
+  .bar-search-wrap {
+    // padding:7px 10px;
+    input {
+      width: 250px;
+    }
+  }
+}
+
+.modifySaleDateButton {
+  margin-left: 10px;
+}
+
+// STR 테이블 세부사항
+.table-select-sort {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #999;
+  padding: 2px 18px 2px 3px;
+
+  &::after {
+    content: '▼';
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    font-size: 8px;
+  }
+
+  .ul-select-sort {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    border: 1px solid #999;
+    li {
+      padding: 1px 0;
+      background: rgba(255,255,255,0.9);
+
+      .point-color3 {
+        color: #e54141;
+      }
+      .point-color4 {
+        color: #2380fa;
+      }
+    }
+  }
+}
+
+table tbody tr .btn-code-inquiry,
+table tbody tr .btn-template-consult {
+  text-decoration: underline;
+  color: #1c1c1c;
+}
+
+.people .show-btn {
+  margin-left: 5px;
+}
+
+.show-btn {
+  padding: 7px 10px;
+  border: 1px solid $gray-ccc;
+  border-radius: 3px;
+  background: #fff;
+
+  &.active {
+      color: #fff;
+      border-color: $default-point-color;
+      background: $default-point-color;
+  }
+}
+.collateralTable {
+  margin-top: 10px;
+}
+
+.btn-takeoverno-reason {
+  margin-left: 5px;
+}
+// END 테이블 세부사항
+
+// STR 팝업
+.pop-code-inquiry {
+  dl {
+    margin-bottom: 10px;
+  }
+  dt {
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  >div {
+    margin-bottom: 5px;
+    background: #eee;
+    font-size: 18px;
+  }
+  
+}
+
+.pop-remark-show {
+  table td {
+    text-align: left;
+  }
+}
+
+.pop-memo-show {
+  table td {
+    text-align: left;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 7px 10px;
+    resize: none;
+  }
+
+  input[type="text"] {
+    padding: 7px 10px;
+    border: 1px solid $gray-ccc;
+    border-radius: 3px;
+    background: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $default-point-color;
+    }
+  }
+
+  button{ //  검색창 내부 요소
+    margin-left: 10px;
+    padding: 7px 10px;
+    border: 1px solid $gray-ccc;
+    border-radius: 3px;
+    background: #fff;
+    &.active,
+    &.save { // 검색, 초기화 버튼
+      width: 53px;
+    }
+  }
+
+  .memo-write-container {
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+
+    .memo-write-box {
+      margin-top: auto;
+      width: 500px
+    }
+    .memo-save-box {
+      margin-top: 112px;
+    }
+  }
+}
+
+.pop-email-change {
+  input[type="text"], select {
+    width: 150px;
+    height: 39px;
+  }
+  input[type="text"] {
+    padding: 7px 10px;
+    border: 1px solid $gray-ccc;
+    border-radius: 3px;
+    background: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $default-point-color;
+    }
+  }
+  select {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+  }
+  span {
+    padding: 0 3px;
+  }
+  div {
+    text-align: right;
+    padding-right: 10px;
+      &:nth-child(1) {
+        margin-bottom: 10px;
+      }
+  }
+}
+
+.pop-cashBack-change {
+  input[type="text"], select {
+    width: 70px;
+    height: 39px;
+  }
+  input[type="text"] {
+    padding: 7px 10px;
+    border: 1px solid $gray-ccc;
+    border-radius: 3px;
+    background: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $default-point-color;
+    }
+  }
+  select {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+  }
+  span {
+    padding: 0 3px;
+  }
+  div {
+    text-align: right;
+    padding-right: 10px;
+    &:nth-child(1) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.pop-account-information {
+  dl {
+    dt {
+      float: left;
+      width: 100px;
+      text-align: left;
+      &::after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+    dd {
+      padding-left: 100px;
+      &:nth-of-type(1) {
+        margin-bottom: 10px;
+      }
+      input, select {
+        width: 100%;
+        height: 37px;
+        padding: 7px 10px;
+        border-radius: 3px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.pop-rejection-reason,
+.pop-template-consult {
+  text-align: left;
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    select {
+      height: 33px;
+      padding: 5px 12px;
+      margin-left: 10px;
+      font-size: 13px;
+    }
+  }
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 7px 10px;
+    resize: none;
+  }
+  span {
+    display: block;
+    position: absolute;
+    bottom: 65px;
+    right: 10px;
+    color: #777;
+  }
+}
+
+.pop-takeover-select {
+  ul {
+    display: inline-block;
+    margin: 0 auto;
+    li {
+      text-align: left;;
+    }
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+
+  .takeover-reason {
+    margin-top: 20px;
+    select {
+      width: 100%;
+      height: 39px;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background: #fff;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      resize: none;
+    }
+  }
+}
+
+.pop-check-select {
+  ul {
+    display: inline-block;
+    margin: 0 auto;
+    li {
+      text-align: left;;
+    }
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+
+  .check-reason {
+    margin-top: 20px;
+    select {
+      width: 100%;
+      height: 39px;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background: #fff;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      resize: none;
+    }
+  }
+}
+
+.pop-cashback-select {
+  ul {
+    display: inline-block;
+    margin: 0 auto;
+    li {
+      text-align: left;;
+    }
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+
+  select {
+    width: 70px;
+    height: 39px;
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 7px 10px;
+    resize: none;
+  }
+}
+
+.pop-company-change {
+   .pop-company-table {
+    input[type=text],
+    input[type=number] {
+      padding: 7px 10px;
+      width: 100%;
+      border: 1px solid $gray-ccc;
+      border-radius: 3px;
+      background: #fff;
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $default-point-color;
+      }
+    }
+
+    input[name=age1],
+    input[name=age2] {
+      width: 15%;
+      text-align: center;
+    }
+
+    //.age-input {
+    //  width: 25% !important;
+    //}
+
+    select {
+      width: 90px;
+      height: 39px;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background: #fff;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      resize: none;
+    }
+  }
+}
+// END 팝업
+
+// STR 필터
+.list-wrapper .functions-wrapper {
+  #searchForm {
+    input[type="text"]:not(#miDatepicker) {
+      width: 195px;
+    }
+    select {
+      height: 37px;
+    }
+    #miDatepicker {
+      text-align: center;
+    }
+    .ui-datepicker-inline{
+      width: 360px !important;
+    }
+  }
+  >form.filter-spacing-adjust {
+    width: 983px;
+    justify-content: space-around;
+  }
+
+  >form.filter-spacing-adjust2 {
+    width: 900px;
+    justify-content: space-around;
+  }
+
+  >form.filter-spacing-job {
+    justify-content: space-around;
+    label {
+      border: none;
+    }
+    input {
+      width: 200px;
+      margin-left: 10px;
+    }
+    .jobSearchButton {
+      height: 35px;
+      align-self: center;
+    }
+  }
+
+  >form.filter-spacing-sales {
+    border: none;
+    justify-content: center;
+    .date-filter {
+      width: 370px;
+      >label{
+        display: inline-block;
+        width: 110px;
+        margin-right: 5px;
+        border: none;
+        font-weight: 700;
+      }
+      >button {
+        width: 53px;
+        padding: 7px 10px;
+        color: #fff;
+        border-color: #2F3650;
+        background: #2F3650;
+      }
+    }
+  }
+}
+// END 필터
+
+// 인수, 개시일 보험료
+.insu-container {
+  margin-top: 15px;
+  table {
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+  }
+  .td-align-right {
+    text-align: right;
+  }
+  .td-align-left {
+    text-align: left;
+  }
+}
+
+// class click
+.text-click {
+  text-decoration: underline;
+  cursor: pointer;
+}

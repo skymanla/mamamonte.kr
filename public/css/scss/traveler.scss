@@ -1,0 +1,246 @@
+@charset 'UTF-8';
+/*
+*  해외여행자 단기 리뉴얼 css
+*/
+
+@import '_define.scss';
+
+.filter-row{
+    justify-content: center !important;
+
+    .additional-filter{ // 부가 필터 row (결제 수단, 상태 등 버튼들)
+        align-items: unset;
+    }
+
+    #txtKeyfield{ // 검색 키워드 input
+        &.hide{
+            display: none;
+        }
+    }
+
+    .add-divider{ // 구분선 추가
+        &:before{
+            content: '';
+            display: block;
+            width: 1px;
+            height: 35px;
+            margin: 0 20px;
+            background-color: $gray-ccc;
+        }
+    }
+}
+
+.modify-inputs{
+    display: none;
+}
+
+.refund-td{
+    >div{
+        display: flex;
+        justify-content: center;
+        button{
+            flex: 1;
+        }
+    }
+}
+
+.cancelinsu-pop-box{ // 보험 해약 팝업
+    .mi-datepicker{
+        width: 100%;
+        padding: 7px 10px;
+        border: 1px solid $gray-ccc;
+        border-radius: 3px;
+        background: #fff;
+        &::-webkit-input-placeholder {
+            color: $gray-ddd;
+            opacity: 1;
+        }
+        &:-ms-input-placeholder {
+            color: $gray-ddd;
+            opacity: 1;
+        }
+        &::-ms-input-placeholder {
+            color: $gray-ddd;
+            opacity: 1;
+        }
+        &::placeholder {
+            color: $gray-ddd;
+            opacity: 1;
+        }
+    }
+}
+
+select{ // datepicker select
+    &.ui-datepicker-year,
+    &.ui-datepicker-month {
+        padding: 7px 10px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 30px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        @include background('/image/select-arrow','png');
+        &::-ms-expand{
+            display: none; // IE 화살표 감추기
+        }
+    }
+}
+
+.wholiday-pcheck-wrapper{
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    .pcheck-filter{
+        padding-bottom: 50px;
+        border-bottom: 1px solid $gray-999;
+
+        .mi-input-group{
+            margin-left: -40px;
+            .mi-input-label{
+                width: 60px;
+                margin-left: 50px;
+            }
+        }
+
+        .mi-input{
+            margin-top: 10px;
+            padding: 10px;
+
+            &.calender{
+                background-repeat: no-repeat;
+                background-position: center right 15px;
+                @include background('/image/calender-ico', 'png');
+            }
+        }
+    }
+
+    .pcheck-info{
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+
+    .pcheck-list{
+        .pcheck-list-item{
+            button{
+                padding: 15px;
+                width: 100%;
+                border: 0;
+                outline: 0;
+                text-align: left;
+                font-weight: 900;
+                border-bottom: 1px solid $gray-e6;
+                background-color: $point-color2;
+                background-repeat: no-repeat;
+                background-position: center right 15px;
+                @include background('/image/arrow-lightgrey-bottom', 'png');
+            }
+
+            .pcheck-list-detail{
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.5s;
+
+                &.show{
+                    max-height: 465px;
+                    border-bottom: 1px solid $gray-e6;
+                }
+            }
+
+            &:first-child{
+                border-top: 1px solid $gray-e6;
+            }
+        }
+
+        .pcheck-list-empty{
+            text-align: center;
+        }
+    }
+}
+
+// STR 팝업 관련
+.mail-pop-box,
+.coupon-pop-box{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    .pop-title{
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .add-btn{
+        float: left;
+        width: 44px;
+        color: #fff;
+        border-color: $default-point-color;
+        background: $default-point-color;
+    }
+    .min-btn{
+        float: right;
+        width: 44px;
+        border: 1px solid $gray-ccc;
+    }
+}
+
+.country-pop-box{
+    .current-box{
+        display: flex;
+        padding: 0 20px;
+        margin-bottom: 20px;
+        span{
+            padding: 15px 0;
+            &.current-title{
+                flex: 1;
+                color: #fff;
+                background-color: $default-point-color;
+            }
+            &.current-text{
+                flex: 3;
+                border: 2px solid $default-point-color;
+            }
+        }
+    }
+}
+
+.blacklist-pop-box,
+.voc-pop-box{
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 1200px;
+
+    .excel-btn-wrap{
+        margin-bottom: 10px;
+        text-align: right;
+        .black-excel-btn{
+            padding: 7px 10px;
+            border: 1px solid $gray-ccc;
+            border-radius: 3px;
+            background: #fff;
+            font-size: $default-font-size;
+            color: $default-font-color;
+            outline: 0;
+        }
+    }
+}
+
+.memo-pop-box{
+    textarea{
+        height: 200px;
+        resize: none;
+    }
+}
+// END 팝업 관련
+
+// STR 세부리스트
+.btn-in-detail{ // 세부리스트 내 버튼 (수정, 환불 등)
+    max-width: 117px;
+    &:nth-child(2){
+        margin-left: 10px;
+    }
+}
+// END 세부리스트

@@ -1,0 +1,332 @@
+@charset 'UTF-8';
+/*
+*  펫보험 css
+*/
+
+@import '_define.scss';
+
+.detail{
+    .detail-tr{
+        a{
+            text-decoration: underline;
+            &.no-color{
+                color: $default-font-color;
+            }
+        }
+    }
+
+    .boundary{
+        border-right: 1px solid $gray-e6;
+    }
+}
+
+.status-td{
+    position: relative;
+    .status-mini-pop{
+        z-index: 2;
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        background-color: #fff;
+        border: 1px solid $gray-e6;
+
+        ul{
+            li{
+                padding: 10px 20px;
+                &:hover{
+                    cursor: pointer;
+                    color: $point-color5;
+                }
+            }
+        }
+    }
+}
+
+.mail-pop-box,
+.cancel-pay-pop{ // 메일발송, 해지 팝업
+    .mi-input-box{
+        input[type=checkbox],
+        input[type=radio]{
+            margin-right: 10px;
+        }
+        .check-select-wrapper{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            width: 100%;
+            margin: 0 30px;
+            > div, select{
+                flex: 1;
+                text-align: left;
+            }
+        }
+
+        .cancel-date-wrapper{
+            padding-right: 18px !important;
+            #cancelDate{
+                background-position: right 10px center;
+                background-repeat: no-repeat;
+                @include background('/image/calender-ico', 'png');
+            }
+        }
+
+    }
+    .payed-log-copy{
+        padding-right: 20px;
+        text-align: right;
+        font-size: $default-font-size;
+        color: $point-color3;
+
+    }
+    .date-wrapper{
+        margin-top: 10px;
+        .mi-datepicker{
+            padding: 7px 10px;
+            border: 1px solid $gray-ccc;
+            border-radius: 3px;
+            background: #fff;
+        }
+    }
+}
+
+.pay-pop-box{ // 납부내역 팝업
+    .payed-log{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        > div{
+            button{
+                margin-right: 5px;
+                padding: 7px 10px;
+                border: 1px solid $gray-ccc;
+                border-radius: 3px;
+                background: #fff;
+                font-size: $default-font-size;
+                color: $default-font-color;
+                outline: 0;
+            }
+        }
+    }
+}
+
+
+.pay-info-wrapper{
+    padding: 0 26px;
+    .pay-card-box{
+        &.card-num-info{ // 카드 텍스트 (번호, 날짜)
+            .card-info-label{
+                margin-bottom: 13px;
+                color: #333;
+                text-align: left;
+            }
+            .card-info-wrapper{
+                display: flex;
+                align-items: center;
+                margin-bottom: 25px;
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
+
+                .card-info-box{
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+
+                    &.card-date{
+                        flex: 0.37;
+                    }
+
+                    .card-info-input{
+                        flex: 1;
+                        input{
+                            width: 100%;
+                            max-height: 40px;
+                            padding: 8px 0;
+                            border:1px solid $gray-ddd;
+                            border-radius: 3px;
+                            outline: 0;
+                            font-weight: 700;
+                            text-align: center;
+
+                            &::-webkit-input-placeholder {
+                                font-weight: normal;
+                                color: $gray-ddd;
+                                opacity: 1;
+                            }
+                            &:-ms-input-placeholder {
+                                font-weight: normal;
+                                color: $gray-ddd;
+                                opacity: 1;
+                            }
+                            &::-ms-input-placeholder {
+                                font-weight: normal;
+                                color: $gray-ddd;
+                                opacity: 1;
+                            }
+                            &::placeholder {
+                                font-weight: normal;
+                                color: $gray-ddd;
+                                opacity: 1;
+                            }
+
+                            &:focus{
+                                border:1px solid $point-color1;
+                            }
+                        }
+                    }
+
+                    .card-info-connect{
+                        color: #707070;
+                        padding: 0 3px;
+                    }
+                }
+            }
+        }
+    }
+    &.in-pop{
+        padding: 0;
+        .pay-card-box{
+            margin: 0;
+            padding: 0;
+        }
+    }
+    &.confirm{
+        padding-bottom: 4px;
+        text-align: center;
+    }
+}
+
+.reject-pop-list{ // 결제취소 팝업
+    .ask-copy{
+        margin-top: 10px;
+        color: $point-color3;
+    }
+}
+
+.alert-pop-box{ // 알림톡 팝업
+    .alert-kind-wrap{
+        padding: 0 40px;
+        .mi-input-input{
+            text-align: left;
+            input[type=radio]{
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.pet-photo-box{ // 사진 팝업
+    form{
+        text-align: right;
+        label{
+            color: $point-color5;
+            text-decoration: underline;
+        }
+        input{
+            display: none;
+        }
+    }
+
+    .showing-img-box{
+        margin: 20px auto 0;
+        width: 100%;
+        height: 400px;
+        background-color: $gray-ccc;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
+}
+
+.name-log-pop-box,
+.log-pop-box{ // 피보험자 가입건수 팝업
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.question-mark{
+	display: inline-block;
+	width: 16px;
+	height: 17px;
+	margin-top: -5px;
+	margin-left: 4px;
+	background-repeat: no-repeat;
+	background-position: center;
+	@include background('/image/question-mark','png');
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.disease-guarantee-pop{
+    color: $gray-999;
+}
+
+.plan-summary-wrap{ // 품종, 니이, 기간 (플랜정보)
+    margin-bottom: 16px;
+    padding: 19px 0 20px;
+    border: 1px solid $gray-e6;
+    > div{
+        display: flex;
+        margin-bottom: 2px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        .plan-summary-title{
+            flex: 1.5;
+            margin-right: 17px;
+            text-align: right;
+            color: $gray-777;
+        }
+        .plan-summary-content{
+            flex: 2;
+            text-align: left;
+            color: $gray-555;
+            &.plan-summary-breed{
+                > div{
+                    width: 152px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        &.highlight{ // 강조
+            padding-top: 4px;
+            font-size: 15px;
+            .plan-summary-title{
+                color: $default-font-color;
+            }
+            .plan-summary-content{
+                display: none;
+                color: $point-color1;
+
+                &.active{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.change-photo-bt{
+    &:disabled{
+        opacity: 0.6;
+    }
+}
+
+// thirdparty
+.upload-label{
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid $default-point-color;
+    border-radius: 3px;
+    background: $default-point-color;
+    font-size: $default-font-size;
+    color: #fff;
+    outline: 0;
+    &+input[type=file]{
+        display: none;
+    }
+}

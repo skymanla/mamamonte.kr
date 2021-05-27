@@ -1,0 +1,834 @@
+@charset "UTF-8";
+/*
+*  운전자보험 공통
+*/
+/*
+*  SCSS 변수 및 함수 정의
+*/
+@import url(/font/NotoSansKR/NotoSansKR.css);
+.content-wrapper {
+  margin: 20px 110px;
+}
+
+.content-wrapper .account-btns {
+  text-align: right;
+}
+
+.content-wrapper .account-btns.left-align {
+  text-align: left;
+}
+
+.content-wrapper .account-btns button,
+.content-wrapper .account-btns .account-btn {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.content-wrapper .account-btns button.active,
+.content-wrapper .account-btns .account-btn.active {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+
+.service-set-menu .driver-service-list {
+  display: none;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  min-width: 500px;
+  height: 48px;
+  padding: 0;
+  -webkit-box-pack: end;
+     -moz-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.service-set-menu .driver-service-list li {
+  padding: 0;
+}
+
+.service-set-menu .driver-service-list li a {
+  display: inline-block;
+  padding: 9px 6px;
+}
+
+.service-set-menu .driver-service-list li.active::after {
+  bottom: 3px;
+  height: 1px;
+}
+
+.service-set-menu .driver-service-list .top-service-menu {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.service-set-menu .driver-service-list .top-service-menu .service-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+     -moz-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  margin-left: auto;
+}
+
+.service-set-menu .driver-service-list .top-service-menu .service-list > li {
+  margin-left: 10px;
+  padding: 20px 0;
+}
+
+.active-contents {
+  display: block;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form .inner {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form .inner h1 {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+form .inner .add-list {
+  padding: 0 250px;
+}
+
+form .inner .add-list > div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 0;
+}
+
+form .inner .add-list > div.rest-account {
+  position: relative;
+  padding-bottom: 15px;
+  border-top: 1px solid #e54141;
+}
+
+form .inner .add-list > div.rest-account span {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  -webkit-transform: translateX(-50%);
+     -moz-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 55%;
+  text-align: center;
+  background-color: #fff;
+}
+
+form .inner .add-list > div:last-child {
+  -webkit-box-align: start;
+     -moz-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+form .inner .add-list > div > label {
+  width: 130px;
+  text-align: left;
+  font-weight: bold;
+}
+
+form .inner .add-list > div > div {
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: left;
+}
+
+form .inner .add-list > div > div .input-wrapper {
+  padding: 10px 0 0 15px;
+}
+
+form .inner .add-list > div > div .input-wrapper.fr {
+  padding-top: 0;
+}
+
+form .inner .add-list > div > div .input-wrapper .hidden-radio {
+  display: none;
+}
+
+form .inner .add-list > div > div input[type=text],
+form .inner .add-list > div > div input[type=password],
+form .inner .add-list > div > div button {
+  padding: 7px 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+form .inner .add-list > div > div input[type=text]:hover, form .inner .add-list > div > div input[type=text]:active, form .inner .add-list > div > div input[type=text]:focus,
+form .inner .add-list > div > div input[type=password]:hover,
+form .inner .add-list > div > div input[type=password]:active,
+form .inner .add-list > div > div input[type=password]:focus,
+form .inner .add-list > div > div button:hover,
+form .inner .add-list > div > div button:active,
+form .inner .add-list > div > div button:focus {
+  border-color: #2F3650;
+}
+
+form .inner .btns button {
+  padding: 7px 10px;
+  width: 53px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #ffffff;
+}
+
+form .inner .btns button.active {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+
+.main-table input[type=text],
+.main-table input[type=password] {
+  padding: 7px 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.main-table input[type=text]:hover, .main-table input[type=text]:active, .main-table input[type=text]:focus,
+.main-table input[type=password]:hover,
+.main-table input[type=password]:active,
+.main-table input[type=password]:focus {
+  border-color: #2F3650;
+}
+
+.btns button {
+  padding: 7px 10px;
+  width: 53px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #ffffff;
+}
+
+.btns button.active {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+
+.btns button.disabled {
+  color: #fff;
+  border-color: #ccc;
+  background: #ccc;
+}
+
+.sales-top-bar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sales-top-bar .bar-text-field {
+  -webkit-box-flex: 0;
+     -moz-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  text-align: right;
+  padding: 7px 10px;
+}
+
+.sales-top-bar .bar-text-field span {
+  font-weight: 700;
+}
+
+.sales-top-bar .bar-other-field {
+  -webkit-box-flex: 0;
+     -moz-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  margin-left: 10px;
+}
+
+.sales-top-bar .bar-other-field input {
+  width: 170px !important;
+}
+
+.sales-top-bar select {
+  padding: 7px 10px;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  font-size: 13px;
+}
+
+.sales-top-bar input[name="daterange"] {
+  text-align: center;
+}
+
+.sales-top-bar .bar-search-wrap input {
+  width: 250px;
+}
+
+.modifySaleDateButton {
+  margin-left: 10px;
+}
+
+.table-select-sort {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #999;
+  padding: 2px 18px 2px 3px;
+}
+
+.table-select-sort::after {
+  content: '▼';
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  font-size: 8px;
+}
+
+.table-select-sort .ul-select-sort {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translateX(-50%);
+     -moz-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 1px solid #999;
+}
+
+.table-select-sort .ul-select-sort li {
+  padding: 1px 0;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.table-select-sort .ul-select-sort li .point-color3 {
+  color: #e54141;
+}
+
+.table-select-sort .ul-select-sort li .point-color4 {
+  color: #2380fa;
+}
+
+table tbody tr .btn-code-inquiry,
+table tbody tr .btn-template-consult {
+  text-decoration: underline;
+  color: #1c1c1c;
+}
+
+.people .show-btn {
+  margin-left: 5px;
+}
+
+.show-btn {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.show-btn.active {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+
+.collateralTable {
+  margin-top: 10px;
+}
+
+.btn-takeoverno-reason {
+  margin-left: 5px;
+}
+
+.pop-code-inquiry dl {
+  margin-bottom: 10px;
+}
+
+.pop-code-inquiry dt {
+  margin-bottom: 5px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.pop-code-inquiry > div {
+  margin-bottom: 5px;
+  background: #eee;
+  font-size: 18px;
+}
+
+.pop-remark-show table td {
+  text-align: left;
+}
+
+.pop-memo-show table td {
+  text-align: left;
+}
+
+.pop-memo-show textarea {
+  width: 100%;
+  height: 150px;
+  padding: 7px 10px;
+  resize: none;
+}
+
+.pop-memo-show input[type="text"] {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-memo-show input[type="text"]:hover, .pop-memo-show input[type="text"]:active, .pop-memo-show input[type="text"]:focus {
+  border-color: #2F3650;
+}
+
+.pop-memo-show button {
+  margin-left: 10px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-memo-show button.active, .pop-memo-show button.save {
+  width: 53px;
+}
+
+.pop-memo-show .memo-write-container {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pop-memo-show .memo-write-container .memo-write-box {
+  margin-top: auto;
+  width: 500px;
+}
+
+.pop-memo-show .memo-write-container .memo-save-box {
+  margin-top: 112px;
+}
+
+.pop-email-change input[type="text"], .pop-email-change select {
+  width: 150px;
+  height: 39px;
+}
+
+.pop-email-change input[type="text"] {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-email-change input[type="text"]:hover, .pop-email-change input[type="text"]:active, .pop-email-change input[type="text"]:focus {
+  border-color: #2F3650;
+}
+
+.pop-email-change select {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-email-change span {
+  padding: 0 3px;
+}
+
+.pop-email-change div {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.pop-email-change div:nth-child(1) {
+  margin-bottom: 10px;
+}
+
+.pop-cashBack-change input[type="text"], .pop-cashBack-change select {
+  width: 70px;
+  height: 39px;
+}
+
+.pop-cashBack-change input[type="text"] {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-cashBack-change input[type="text"]:hover, .pop-cashBack-change input[type="text"]:active, .pop-cashBack-change input[type="text"]:focus {
+  border-color: #2F3650;
+}
+
+.pop-cashBack-change select {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-cashBack-change span {
+  padding: 0 3px;
+}
+
+.pop-cashBack-change div {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.pop-cashBack-change div:nth-child(1) {
+  margin-bottom: 10px;
+}
+
+.pop-account-information dl dt {
+  float: left;
+  width: 100px;
+  text-align: left;
+}
+
+.pop-account-information dl dt::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.pop-account-information dl dd {
+  padding-left: 100px;
+}
+
+.pop-account-information dl dd:nth-of-type(1) {
+  margin-bottom: 10px;
+}
+
+.pop-account-information dl dd input, .pop-account-information dl dd select {
+  width: 100%;
+  height: 37px;
+  padding: 7px 10px;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  font-size: 13px;
+}
+
+.pop-rejection-reason,
+.pop-template-consult {
+  text-align: left;
+}
+
+.pop-rejection-reason label,
+.pop-template-consult label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pop-rejection-reason label select,
+.pop-template-consult label select {
+  height: 33px;
+  padding: 5px 12px;
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.pop-rejection-reason textarea,
+.pop-template-consult textarea {
+  width: 100%;
+  height: 150px;
+  padding: 7px 10px;
+  resize: none;
+}
+
+.pop-rejection-reason span,
+.pop-template-consult span {
+  display: block;
+  position: absolute;
+  bottom: 65px;
+  right: 10px;
+  color: #777;
+}
+
+.pop-takeover-select ul {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.pop-takeover-select ul li {
+  text-align: left;
+}
+
+.pop-takeover-select ul input[type="radio"] {
+  margin-right: 5px;
+}
+
+.pop-takeover-select .takeover-reason {
+  margin-top: 20px;
+}
+
+.pop-takeover-select .takeover-reason select {
+  width: 100%;
+  height: 39px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-takeover-select .takeover-reason textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  resize: none;
+}
+
+.pop-check-select ul {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.pop-check-select ul li {
+  text-align: left;
+}
+
+.pop-check-select ul input[type="radio"] {
+  margin-right: 5px;
+}
+
+.pop-check-select .check-reason {
+  margin-top: 20px;
+}
+
+.pop-check-select .check-reason select {
+  width: 100%;
+  height: 39px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-check-select .check-reason textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  resize: none;
+}
+
+.pop-cashback-select ul {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.pop-cashback-select ul li {
+  text-align: left;
+}
+
+.pop-cashback-select ul input[type="radio"] {
+  margin-right: 5px;
+}
+
+.pop-cashback-select select {
+  width: 70px;
+  height: 39px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-cashback-select textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  resize: none;
+}
+
+.pop-company-change .pop-company-table input[type=text],
+.pop-company-change .pop-company-table input[type=number] {
+  padding: 7px 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-company-change .pop-company-table input[type=text]:hover, .pop-company-change .pop-company-table input[type=text]:active, .pop-company-change .pop-company-table input[type=text]:focus,
+.pop-company-change .pop-company-table input[type=number]:hover,
+.pop-company-change .pop-company-table input[type=number]:active,
+.pop-company-change .pop-company-table input[type=number]:focus {
+  border-color: #2F3650;
+}
+
+.pop-company-change .pop-company-table input[name=age1],
+.pop-company-change .pop-company-table input[name=age2] {
+  width: 15%;
+  text-align: center;
+}
+
+.pop-company-change .pop-company-table select {
+  width: 90px;
+  height: 39px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #fff;
+}
+
+.pop-company-change .pop-company-table textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  resize: none;
+}
+
+.list-wrapper .functions-wrapper #searchForm input[type="text"]:not(#miDatepicker) {
+  width: 195px;
+}
+
+.list-wrapper .functions-wrapper #searchForm select {
+  height: 37px;
+}
+
+.list-wrapper .functions-wrapper #searchForm #miDatepicker {
+  text-align: center;
+}
+
+.list-wrapper .functions-wrapper #searchForm .ui-datepicker-inline {
+  width: 360px !important;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-adjust {
+  width: 983px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-adjust2 {
+  width: 900px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-job {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-job label {
+  border: none;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-job input {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-job .jobSearchButton {
+  height: 35px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-sales {
+  border: none;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-sales .date-filter {
+  width: 370px;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-sales .date-filter > label {
+  display: inline-block;
+  width: 110px;
+  margin-right: 5px;
+  border: none;
+  font-weight: 700;
+}
+
+.list-wrapper .functions-wrapper > form.filter-spacing-sales .date-filter > button {
+  width: 53px;
+  padding: 7px 10px;
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+
+.insu-container {
+  margin-top: 15px;
+}
+
+.insu-container table {
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+}
+
+.insu-container .td-align-right {
+  text-align: right;
+}
+
+.insu-container .td-align-left {
+  text-align: left;
+}
+
+.text-click {
+  text-decoration: underline;
+  cursor: pointer;
+}

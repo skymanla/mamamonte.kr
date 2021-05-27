@@ -1,0 +1,72 @@
+@charset 'UTF-8';
+/*
+* 대시보드 CSS
+*/
+
+@import '_define.scss';
+
+.dashboard-wrapper{
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+    .btn-wrapper{
+        margin-right: 20px;
+        &:last-child{
+            margin: 0;
+        }
+        .menu-btn{
+            display: block;
+            width: 150px;
+            height: 150px;
+            color: $default-font-color;
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+            padding-top: 65px;
+            border: 1px solid $gray-ccc;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: center center;
+            &.travel{
+                @include background('/image/ico_travel', 'png');
+            }
+            &.driver{
+                @include background('/image/ico_drive', 'png');
+            }
+            &.pet{
+                @include background('/image/ico_pet', 'png');
+            }
+            &.mountain{
+                @include background('/image/ico_mountain', 'png');
+            }
+            &.silbi{
+                @include background('/image/ico_silbi', 'png');
+            }
+            &.micare{
+                @include background('/image/ico_micare', 'png');
+            }
+            &.active{
+                border-color: $point-color1;
+                color: $point-color1;
+            }
+        }
+
+        .travel-menu{
+            display: none;
+            ul{
+                padding-top: 20px;
+                li{
+                    padding: 8px 14px;
+                    a{
+                        font-size: 16px;
+                        &:hover,
+                        &:active,
+                        &:focus{
+                            color: $point-color1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

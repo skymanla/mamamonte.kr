@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/*
+*  해외여행자 단기 리뉴얼 css
+*/
+/*
+*  SCSS 변수 및 함수 정의
+*/
+@import url(/font/NotoSansKR/NotoSansKR.css);
+.blacklist-pop-box textarea {
+  height: 100px;
+  resize: none;
+}
+
+.blacklist-pop-box .mi-input-box {
+  min-height: 0 !important;
+}

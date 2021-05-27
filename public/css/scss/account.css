@@ -1,0 +1,365 @@
+@charset "UTF-8";
+/*
+*  계정관리
+*/
+/*
+*  SCSS 변수 및 함수 정의
+*/
+@import url(/font/NotoSansKR/NotoSansKR.css);
+.content-wrapper {
+  margin: 20px 110px;
+}
+.content-wrapper .account-btns {
+  text-align: right;
+}
+.content-wrapper .account-btns button,
+.content-wrapper .account-btns .account-btn {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+}
+.content-wrapper .account-btns button.active,
+.content-wrapper .account-btns .account-btn.active {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+.content-wrapper .functions-wrapper > div,
+.content-wrapper .functions-wrapper > form {
+  display: flex;
+  padding: 15px 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.content-wrapper .functions-wrapper > div > div,
+.content-wrapper .functions-wrapper > form > div {
+  display: flex;
+}
+.content-wrapper .functions-wrapper > div > div select,
+.content-wrapper .functions-wrapper > div > div input,
+.content-wrapper .functions-wrapper > div > div label,
+.content-wrapper .functions-wrapper > div > div button,
+.content-wrapper .functions-wrapper > form > div select,
+.content-wrapper .functions-wrapper > form > div input,
+.content-wrapper .functions-wrapper > form > div label,
+.content-wrapper .functions-wrapper > form > div button {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+}
+.content-wrapper .functions-wrapper > div > div select.active, .content-wrapper .functions-wrapper > div > div select:checked + label,
+.content-wrapper .functions-wrapper > div > div input.active,
+.content-wrapper .functions-wrapper > div > div input:checked + label,
+.content-wrapper .functions-wrapper > div > div label.active,
+.content-wrapper .functions-wrapper > div > div label:checked + label,
+.content-wrapper .functions-wrapper > div > div button.active,
+.content-wrapper .functions-wrapper > div > div button:checked + label,
+.content-wrapper .functions-wrapper > form > div select.active,
+.content-wrapper .functions-wrapper > form > div select:checked + label,
+.content-wrapper .functions-wrapper > form > div input.active,
+.content-wrapper .functions-wrapper > form > div input:checked + label,
+.content-wrapper .functions-wrapper > form > div label.active,
+.content-wrapper .functions-wrapper > form > div label:checked + label,
+.content-wrapper .functions-wrapper > form > div button.active,
+.content-wrapper .functions-wrapper > form > div button:checked + label {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+.content-wrapper .functions-wrapper > div > div select.search, .content-wrapper .functions-wrapper > div > div select.reset,
+.content-wrapper .functions-wrapper > div > div input.search,
+.content-wrapper .functions-wrapper > div > div input.reset,
+.content-wrapper .functions-wrapper > div > div label.search,
+.content-wrapper .functions-wrapper > div > div label.reset,
+.content-wrapper .functions-wrapper > div > div button.search,
+.content-wrapper .functions-wrapper > div > div button.reset,
+.content-wrapper .functions-wrapper > form > div select.search,
+.content-wrapper .functions-wrapper > form > div select.reset,
+.content-wrapper .functions-wrapper > form > div input.search,
+.content-wrapper .functions-wrapper > form > div input.reset,
+.content-wrapper .functions-wrapper > form > div label.search,
+.content-wrapper .functions-wrapper > form > div label.reset,
+.content-wrapper .functions-wrapper > form > div button.search,
+.content-wrapper .functions-wrapper > form > div button.reset {
+  width: 53px;
+}
+.content-wrapper .functions-wrapper > div > div input,
+.content-wrapper .functions-wrapper > form > div input {
+  width: 187px;
+}
+.content-wrapper .functions-wrapper > div > div select,
+.content-wrapper .functions-wrapper > form > div select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 30px;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-image: url("/image/select-arrow.png");
+  background-image: image-set(url("/image/select-arrow@2x.png") 2x, url("/image/select-arrow@3x.png") 3x);
+}
+.content-wrapper .functions-wrapper > div > div select::-ms-expand,
+.content-wrapper .functions-wrapper > form > div select::-ms-expand {
+  display: none;
+}
+.content-wrapper .functions-wrapper > div.filter,
+.content-wrapper .functions-wrapper > form.filter {
+  justify-content: space-between;
+  width: 573px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #e6e6e6;
+}
+.content-wrapper .functions-wrapper > div.filter.pet-form,
+.content-wrapper .functions-wrapper > form.filter.pet-form {
+  width: 1550px;
+}
+.content-wrapper .functions-wrapper > div.filter.pet-form .date-filter,
+.content-wrapper .functions-wrapper > form.filter.pet-form .date-filter {
+  width: 360px;
+  text-align: center;
+}
+.content-wrapper .functions-wrapper > div.filter.filter-center,
+.content-wrapper .functions-wrapper > form.filter.filter-center {
+  justify-content: center;
+}
+.content-wrapper .functions-wrapper > div.filter.filter-row,
+.content-wrapper .functions-wrapper > form.filter.filter-row {
+  display: block;
+}
+.content-wrapper .functions-wrapper > div.filter.filter-row .filter-row,
+.content-wrapper .functions-wrapper > form.filter.filter-row .filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+}
+.content-wrapper .functions-wrapper > div.filter.filter-row .filter-row.lst,
+.content-wrapper .functions-wrapper > form.filter.filter-row .filter-row.lst {
+  margin-top: 10px;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter,
+.content-wrapper .functions-wrapper > div.filter .additional-filter,
+.content-wrapper .functions-wrapper > form.filter .date-filter,
+.content-wrapper .functions-wrapper > form.filter .additional-filter {
+  position: relative;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter input[type=text],
+.content-wrapper .functions-wrapper > div.filter .additional-filter input[type=text],
+.content-wrapper .functions-wrapper > form.filter .date-filter input[type=text],
+.content-wrapper .functions-wrapper > form.filter .additional-filter input[type=text] {
+  margin-right: 5px;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter label,
+.content-wrapper .functions-wrapper > div.filter .additional-filter label,
+.content-wrapper .functions-wrapper > form.filter .date-filter label,
+.content-wrapper .functions-wrapper > form.filter .additional-filter label {
+  margin-right: 5px;
+  width: 53px;
+  text-align: center;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter label:last-child,
+.content-wrapper .functions-wrapper > div.filter .additional-filter label:last-child,
+.content-wrapper .functions-wrapper > form.filter .date-filter label:last-child,
+.content-wrapper .functions-wrapper > form.filter .additional-filter label:last-child {
+  margin: 0;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter label.no-padding,
+.content-wrapper .functions-wrapper > div.filter .additional-filter label.no-padding,
+.content-wrapper .functions-wrapper > form.filter .date-filter label.no-padding,
+.content-wrapper .functions-wrapper > form.filter .additional-filter label.no-padding {
+  padding: 7px 0;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter input[type=radio],
+.content-wrapper .functions-wrapper > div.filter .additional-filter input[type=radio],
+.content-wrapper .functions-wrapper > form.filter .date-filter input[type=radio],
+.content-wrapper .functions-wrapper > form.filter .additional-filter input[type=radio] {
+  display: none;
+}
+.content-wrapper .functions-wrapper > div.filter .date-filter .ui-datepicker,
+.content-wrapper .functions-wrapper > div.filter .additional-filter .ui-datepicker,
+.content-wrapper .functions-wrapper > form.filter .date-filter .ui-datepicker,
+.content-wrapper .functions-wrapper > form.filter .additional-filter .ui-datepicker {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 9;
+}
+.content-wrapper .functions-wrapper > div.filter .search-filter input[type=text],
+.content-wrapper .functions-wrapper > div.filter .search-filter select,
+.content-wrapper .functions-wrapper > form.filter .search-filter input[type=text],
+.content-wrapper .functions-wrapper > form.filter .search-filter select {
+  margin-right: 5px;
+}
+.content-wrapper .functions-wrapper > div.filter .search-filter button,
+.content-wrapper .functions-wrapper > form.filter .search-filter button {
+  margin-right: 5px;
+}
+.content-wrapper .functions-wrapper > div.filter .search-filter button:last-child,
+.content-wrapper .functions-wrapper > form.filter .search-filter button:last-child {
+  margin: 0;
+}
+.content-wrapper .functions-wrapper > div.result-total,
+.content-wrapper .functions-wrapper > form.result-total {
+  font-weight: 700;
+}
+.content-wrapper .functions-wrapper > div.result-total span,
+.content-wrapper .functions-wrapper > form.result-total span {
+  font-weight: normal;
+}
+.content-wrapper .functions-wrapper > div.function,
+.content-wrapper .functions-wrapper > form.function {
+  justify-content: space-between;
+}
+.content-wrapper .functions-wrapper > div.function .function-btns button,
+.content-wrapper .functions-wrapper > form.function .function-btns button {
+  margin-right: 5px;
+}
+.content-wrapper .functions-wrapper > div.function .function-btns button:last-child,
+.content-wrapper .functions-wrapper > form.function .function-btns button:last-child {
+  margin: 0;
+}
+.content-wrapper .functions-wrapper > div.function .function-statistics > div,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div {
+  display: flex;
+  align-items: center;
+}
+.content-wrapper .functions-wrapper > div.function .function-statistics > div:first-child,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div:first-child {
+  margin-right: 15px;
+}
+.content-wrapper .functions-wrapper > div.function .function-statistics > div span,
+.content-wrapper .functions-wrapper > div.function .function-statistics > div a,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div span,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div a {
+  margin-right: 5px;
+}
+.content-wrapper .functions-wrapper > div.function .function-statistics > div span.title,
+.content-wrapper .functions-wrapper > div.function .function-statistics > div a.title,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div span.title,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div a.title {
+  font-weight: 700;
+}
+.content-wrapper .functions-wrapper > div.function .function-statistics > div a,
+.content-wrapper .functions-wrapper > form.function .function-statistics > div a {
+  color: #1400FF;
+}
+
+form {
+  margin-top: 20px;
+}
+form .inner {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+form .inner h1 {
+  text-align: left;
+  margin-bottom: 50px;
+}
+form .inner .add-list {
+  padding: 0 250px;
+}
+form .inner .add-list > div {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+}
+form .inner .add-list > div.rest-account {
+  position: relative;
+  padding-bottom: 15px;
+  border-top: 1px solid #e54141;
+}
+form .inner .add-list > div.rest-account span {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  width: 55%;
+  text-align: center;
+  background-color: #fff;
+}
+form .inner .add-list > div.hidden-radio {
+  display: none;
+  margin-left: 130px;
+}
+form .inner .add-list > div.hidden-radio.show {
+  display: flex;
+  align-items: flex-start;
+}
+form .inner .add-list > div.hidden-radio > div {
+  width: 50%;
+  margin-right: 30px;
+}
+form .inner .add-list > div.hidden-radio > div .sub-input-wrapper {
+  display: none;
+  margin-bottom: 10px;
+}
+form .inner .add-list > div.hidden-radio > div .sub-input-wrapper.show {
+  display: block;
+}
+form .inner .add-list > div.hidden-radio > div .sub-input-wrapper:last-child {
+  margin: 0;
+}
+form .inner .add-list > div:last-child {
+  align-items: flex-start;
+}
+form .inner .add-list > div > label {
+  width: 130px;
+  text-align: left;
+  font-weight: bold;
+}
+form .inner .add-list > div > div {
+  flex: 1;
+  text-align: left;
+}
+form .inner .add-list > div > div.level-in-wrapper {
+  display: block;
+}
+form .inner .add-list > div > div.level-in-wrapper .level-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+form .inner .add-list > div > div.level-in-wrapper .level-row .input-wrapper {
+  width: calc(100% / 3);
+  text-align: left;
+}
+form .inner .add-list > div > div.level-in-wrapper .level-row .input-wrapper:last-child {
+  margin: 0;
+}
+form .inner .add-list > div > div .hidden-radio-bottom {
+  margin-left: 20px;
+}
+form .inner .add-list > div > div input[type=text],
+form .inner .add-list > div > div input[type=password],
+form .inner .add-list > div > div button {
+  padding: 7px 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+}
+form .inner .add-list > div > div input[type=text]:hover, form .inner .add-list > div > div input[type=text]:active, form .inner .add-list > div > div input[type=text]:focus,
+form .inner .add-list > div > div input[type=password]:hover,
+form .inner .add-list > div > div input[type=password]:active,
+form .inner .add-list > div > div input[type=password]:focus,
+form .inner .add-list > div > div button:hover,
+form .inner .add-list > div > div button:active,
+form .inner .add-list > div > div button:focus {
+  border-color: #2F3650;
+}
+form .inner .btns button {
+  padding: 7px 10px;
+  width: 53px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+}
+form .inner .btns button.active {
+  color: #fff;
+  border-color: #2F3650;
+  background: #2F3650;
+}
+
+/*# sourceMappingURL=account.css.map */

@@ -1,0 +1,136 @@
+@charset 'UTF-8';
+/*
+*  로그인 CSS
+*/
+
+@import '_define.scss';
+
+.login-wrapper{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.login-title-wrapper{
+    margin-bottom: 30px;
+    text-align: center;
+    h1{
+        font-weight: 700;
+        font-size: 21px;
+    }
+    h2{
+        font-weight: 700;
+        font-size: 17px;
+    }
+    .login-title-copy{
+        color: #555;
+    }
+}
+
+form{
+    width: 100%;
+    .login-input-wrapper{
+        display: flex;
+        .login-text{
+            flex: 1;
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            color: $default-point-color;
+            border-radius: 3px;
+            &::placeholder{
+                color: #ccc;
+                opacity: 1;
+            }
+            &::-ms-value{
+                color: $default-font-color;
+                background-color: transparent;
+            }
+            &:hover,
+            &:active,
+            &:focus{
+                border-color: $default-point-color;
+            }
+            &.last{
+                margin: 0;
+            }
+        }
+        .login-checkbox{
+            display: none;
+            &+.login-label{
+                margin-top: 10px;
+                font-size: 12px;
+                vertical-align: middle;
+                &::after{
+                    content: '';
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 5px;
+                    vertical-align: middle;
+                    @include background('/image/chk_off', 'png');
+                }
+            }
+            &:checked+.login-label{
+                &::after{
+                    @include background('/image/chk_on', 'png');
+                }
+            }
+        }
+
+        button{
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px 0;
+            text-align: center;
+            color: #fff;
+            border: 1px solid $default-point-color;
+            border-radius: 3px;
+            background-color: $default-point-color;
+        }
+    }
+
+    .error-box{
+        margin-top: 20px;
+        padding: 10px 0;
+        color: $point-color3;
+        text-align: center;
+        font-weight: bold;
+        font-size: 13px;
+        border-radius: 3px;
+        border: 1px solid $point-color3;
+    }
+
+    .rest-account{
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 15px;
+        border-top: 1px solid $point-color3;
+        span{
+            position: absolute;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+            width: 55%;
+            text-align: center;
+            font-weight: 700;
+            color: $point-color3;
+            background-color: #fff;
+        }
+    }
+
+    .oauth-form {
+        text-align: center;
+        img {
+            width: 30%;
+        }
+    }
+}
+
+.resend-auth{
+    margin-top: 14px;
+    &:hover,
+    &:focus{
+        color: $default-font-color;
+    }
+}
