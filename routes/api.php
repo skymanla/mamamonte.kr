@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/oauth/save', [\App\Http\Controllers\User\UserInformationController::class, 'saveCenterTitle'])->name('oauth.save');
+Route::post('/consulting/save', [\App\Http\Controllers\Consulting\WriteController::class, 'saveConsulting'])->name('consulting.save');
+Route::post('/consulting/voc/{seq}')->name('consulting.vocDetail');

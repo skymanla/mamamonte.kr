@@ -1,12 +1,22 @@
 @extends('main')
+@section('subcss')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}?v={{ time() }}" />
+@endsection
 @section('content')
-    <div class="login-box">
-        <h1>센터관리자</h1>
-        <p class="copy">센터관리자 로그인 서비스</p>
-        <form action="" method="post" name="LoginForm">
-
-            <button type="button" onclick="document.LoginForm.submit()">로그인</button>
-            <div class="label-wrap"><input type="checkbox" id="email-save" name="emailSave"><label for="email-save">이메일 저장</label></div>
+    <div class="login-wrapper">
+        <div class="login-title-wrapper">
+            <h1>마마몽떼 관리자 로그인</h1>
+        </div>
+        <form action="" method="post" id="LoginForm">
+            <div class="oauth-form">
+                <img class="naver_oauth" src="{{ asset('image/naver/btnD_complete.png') }}" alt="naver 로그인 " />
+            </div>
         </form>
     </div>
+
+    <script>
+        $('.naver_oauth').on('click', function() {
+          location.href = "{{ $naverUrl }}";
+        });
+    </script>
 @endsection

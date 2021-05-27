@@ -17,6 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('contents.login');
+Route::get('/', [\App\Http\Controllers\MainController::class, 'main'])->name('main');
+Route::name('user.')->group(function () {
+    Route::get('/user/oauth2/{oauthType}', [\App\Http\Controllers\User\OauthController::class, 'oauthReceivers'])->name('oauth');
+    Route::get('/user/info', [\App\Http\Controllers\User\UserInformationController::class, 'main'])->name('info');
+    Route::get('/user/logout', function () {
+        session()->flush();
+        return redirect()->route('main');
+    })->name('logout');
 });
+
+Route::name('student.')->group(function () {
+  Route::get('/student/list', [\App\Http\Controllers\Students\ListController::class, 'main'])->name('list');
+});
+
+Route::name('consulting.')->group(function () {
+  Route::get('/consulting/list', [\App\Http\Controllers\Consulting\ListController::class, 'main'])->name('list');
+  Route::get('/consulting/new', [\App\Http\Controllers\Consulting\WriteController::class, 'main'])->name('write');
+});
+
