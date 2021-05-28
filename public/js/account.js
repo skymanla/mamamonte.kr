@@ -13,7 +13,7 @@ function goModify() {
         },
         uri: 'oauth/save',
         func: function(res) {
-            commonJS.alertPop(res.msg, function() {
+            commonJS.alertPop(res.message, function() {
                 location.href = '/user/logout';
             });
         }
