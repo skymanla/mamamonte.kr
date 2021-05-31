@@ -9,6 +9,10 @@
                 <h1>센터 설정</h1>
                 <div class="add-list">
                     <div>
+                        <label for="register_info">안내사항</label>
+                        <span style="color:#0972a5">* 연락처 및 이메일은 사용등록 완료 후 안내를 위해 사용됩니다</span>
+                    </div>
+                    <div>
                         <label for="name">이름</label>
                         <label>
                             <input type="text" name="name" required />
