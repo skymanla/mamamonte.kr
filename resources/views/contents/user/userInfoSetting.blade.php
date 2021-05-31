@@ -6,7 +6,7 @@
     <section class="container-section">
         <form method="post" name="modForm" id="modForm">
             <div class="inner">
-                <h1>센터 설정</h1>
+                <h1>회원 가입</h1>
                 <div class="add-list">
                     <div>
                         <label for="register_info">안내사항</label>
@@ -39,7 +39,7 @@
                 <hr>
                 <div class="btns">
                     <button type="button" onclick="goCancel();" id="cancelMyformBtn">취소</button>
-                    <button type="button" onclick="goModify();" class="active" id="addMyformBtn" data-type="mod">저장</button>
+                    <button type="button" onclick="goModify();" class="active" id="addMyformBtn" data-type="mod">가입</button>
                 </div>
                 <!-- END 최종수정 및 버튼 -->
             </div>
