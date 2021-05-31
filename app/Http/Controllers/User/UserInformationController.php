@@ -33,7 +33,11 @@ class UserInformationController extends Controller
 
             return view('contents.user.userInfoSetting',
             [
-                'centerList' => $centerList
+                'centerList' => $centerList,
+                'oauthInfo' => [
+                    'email' => session()->get('oauth_info.email'),
+                    'phone' => session()->get('oauth_info.phone')
+                ]
             ]);
         }
 
@@ -56,7 +60,8 @@ class UserInformationController extends Controller
         $validation = Validator::make(
             $request->all(),
             [
-                'seq' =>['required', 'numeric']
+                'seq' => ['required', 'numeric'],
+                'name' => ['required']
             ]
         );
 
@@ -68,7 +73,7 @@ class UserInformationController extends Controller
         $oauthType = session()->get('oauth_info.type');
         $id = session()->get('oauth_info.id');
         $email = session()->get('oauth_info.email');
-        $name = session()->get('oauth_info.name');
+        $name = $request->name;
         $tel = session()->get('oauth_info.phone');
 
         // 존재하는 회원인지 확인

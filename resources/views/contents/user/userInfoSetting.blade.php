@@ -9,8 +9,22 @@
                 <h1>센터 설정</h1>
                 <div class="add-list">
                     <div>
-                        <label for="name">센터 선택</label>
-                        <select name="" id="centerTitle">
+                        <label for="name">이름</label>
+                        <label>
+                            <input type="text" name="name" required />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="tel">연락처</label>
+                        <span>{{ $oauthInfo['phone'] }}</span>
+                    </div>
+                    <div>
+                        <label for="email">이메일</label>
+                        <span>{{ $oauthInfo['email'] }}</span>
+                    </div>
+                    <div>
+                        <label for="centerTitle">센터 선택</label>
+                        <select name="centerTitle" id="centerTitle">
                             @foreach($centerList as $center)
                                 <option value="{{ $center->seq }}">{{ $center->title . " " . $center->name }}</option>
                             @endforeach

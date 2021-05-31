@@ -61,9 +61,7 @@ class OauthController extends Controller
                 'oauth_info' => [
                     'id' => $naverProfile['response']['id'],
                     'email' => $naverProfile['response']['email'],
-                    'name' => $naverProfile['response']['name'],
                     'phone' => $naverProfile['response']['mobile'],
-                    'birth' => $naverProfile['response']['birthday'],
                     'type' => $oauthType,
                 ]
             ]);
